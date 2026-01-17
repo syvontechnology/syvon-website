@@ -1,9 +1,15 @@
 import HeroSection from "@/components/hero/HeroSection";
+import WhoWeAre from "@/components/sections/WhoWeAre";
+import Expertise from "@/components/sections/Expertise";
+import ProductsHighlight from "@/components/sections/ProductsHighlight";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HeroSection />
-    </main>
+      <WhoWeAre />
+      <Expertise />
+      <ProductsHighlight />
+    </>
   );
 }
