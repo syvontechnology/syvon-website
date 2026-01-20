@@ -1,0 +1,34 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  @include section;
+}
+
+.header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto $space-xl;
+
+  h2 {
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    color: $text-muted;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}

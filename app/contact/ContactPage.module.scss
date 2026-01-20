@@ -1,0 +1,146 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.page {
+  padding-bottom: $space-xxl;
+}
+
+/* =========================
+   Hero Section
+========================= */
+.hero {
+  padding: $space-xxl $space-sm $space-xl;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 37, 64, 0.06),
+    rgba(255, 255, 255, 0)
+  );
+
+  h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: $text-primary;
+  }
+
+  p {
+    margin-top: $space-sm;
+    font-size: 18px;
+    color: $text-muted;
+    max-width: 620px;
+    margin-inline: auto;
+  }
+}
+
+/* =========================
+   Main Content
+========================= */
+.content {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  margin-top: $space-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Info Section
+========================= */
+.info {
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.6;
+    margin-bottom: $space-lg;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  span {
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-muted;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  a,
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-primary;
+    text-decoration: none;
+  }
+}
+
+/* =========================
+   Contact Form
+========================= */
+.form {
+  background: $surface;
+  padding: $space-lg;
+  border-radius: 16px;
+  border: 1px solid $border;
+  box-shadow: 0 20px 40px rgba(11, 18, 32, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+
+  button {
+    margin-top: $space-sm;
+    background: $primary-2;
+    color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(11, 18, 32, 0.2);
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  input,
+  textarea {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid $border;
+    font-size: 15px;
+    font-family: $font-base;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-2;
+      box-shadow: 0 0 0 3px rgba(27, 77, 137, 0.15);
+    }
+  }
+}

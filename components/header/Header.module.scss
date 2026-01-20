@@ -1,93 +1,206 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+/* Header root */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  background: rgba(10, 10, 15, 0.9);
-  backdrop-filter: blur(10px);
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: transparent;
+  transition: background 280ms ease, box-shadow 280ms ease;
 }
 
-.container {
+/* Scrolled state (solid bar) */
+.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 28px rgba(12, 30, 50, 0.08);
+  border-bottom: 1px solid $border;
+}
+
+/* inner container */
+.inner {
+  @include container;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 60px;
-
-  @media (max-width: 768px) {
-    padding: 16px 24px;
-  }
+  gap: $space-lg;
 }
 
+/* left area (logo) */
+.left {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+/* Logo */
 .logo {
+  font-weight: 800;
   font-size: 20px;
-  font-weight: 700;
+  color: $primary;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-/* Desktop Nav */
+/* Desktop nav (hidden on mobile) */
 .navDesktop {
   display: flex;
-  gap: 28px;
+  gap: $space-lg;
+  align-items: center;
 
-  a {
-    font-size: 14px;
-    opacity: 0.85;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  @media (max-width: 768px) {
+  @include mobile {
     display: none;
   }
 }
 
-/* Hamburger */
-.menuButton {
+.navLink {
+  color: $text-primary;
+  font-weight: 600;
+  padding: 6px 2px;
+  text-decoration: none;
+  position: relative;
+  transition: color 180ms ease;
+
+  &:hover {
+    color: $primary-2;
+  }
+
+  /* subtle underline animation */
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: $primary-2;
+    transition: width 220ms ease;
+  }
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+/* Right area (CTA + burger) */
+.right {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+/* Desktop contact CTA */
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary-2;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+/* Burger button */
+.burger {
   display: none;
-  background: none;
+  width: 40px;
+  height: 36px;
+  background: transparent;
   border: none;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
   cursor: pointer;
 
   span {
     display: block;
     width: 22px;
     height: 2px;
-    background: white;
+    background: $text-primary;
     margin: 5px 0;
-  }
-
-  @media (max-width: 768px) {
-    display: block;
+    transition: transform 180ms ease, opacity 180ms ease;
   }
 }
 
-/* Mobile Menu */
+/* burger visible on mobile */
+@include mobile {
+  .burger {
+    display: inline-flex;
+  }
+}
+
+/* Animated mobile menu wrapper (collapsible) */
 .mobileMenu {
   position: absolute;
-  top: 100%;
   left: 0;
-  width: 100%;
-  background: #0b0c10;
+  right: 0;
+  top: 72px;
+  transform-origin: top center;
+  transform: translateY(-8px) scaleY(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease;
+  z-index: 1100;
+}
+
+/* open state */
+.mobileOpen {
+  transform: translateY(0) scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile nav contents */
+.navMobile {
+  background: $surface;
+  border-bottom: 1px solid $border;
+  box-shadow: 0 18px 40px rgba(12, 30, 50, 0.06);
   display: flex;
   flex-direction: column;
-  padding: 24px;
-  animation: slideDown 0.3s ease;
+  gap: 8px;
+  padding: $space-lg;
+}
 
-  a {
-    padding: 14px 0;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* Mobile link */
+.navMobileLink {
+  padding: 12px 0;
+  font-weight: 600;
+  color: $text-primary;
+  text-decoration: none;
+  border-radius: 8px;
+
+  &:hover {
+    background: rgba(10, 45, 80, 0.03);
   }
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* mobile CTA inside menu */
+.mobileContact {
+  margin-top: 8px;
+  display: inline-block;
+  background: $primary-2;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Helper when nav is visually present on desktop, mobile menu hidden */
+@include mobile {
+  .navDesktop {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .mobileMenu {
+    display: block;
   }
 }

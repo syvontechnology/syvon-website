@@ -1,0 +1,106 @@
+@use "@/styles/variables" as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xxl;
+}
+.content {
+  color: $text-secondary;
+}
+
+/* Intro */
+.intro {
+  max-width: 820px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $text-muted;
+
+//   p + p {
+//     margin-top: 40px;
+//   }
+
+  strong {
+    color: $text-primary;
+  }
+}
+
+/* Mission / Vision */
+.mv {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  h3 {
+    margin-bottom: $space-sm;
+    color: $text-primary;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.7;
+  }
+}
+
+/* Domains */
+.domains {
+  h3 {
+    margin-bottom: $space-lg;
+  }
+}
+
+.domainGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: $space-lg;
+}
+
+.domainCard {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 14px;
+  padding: $space-lg;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  h4 {
+    margin-bottom: $space-sm;
+    color: $text-primary;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-muted;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Principles */
+.principles {
+  max-width: 820px;
+
+  h3 {
+    margin-bottom: $space-md;
+  }
+
+  ul {
+    padding-left: 18px;
+    color: $text-muted;
+
+    li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .mv {
+    grid-template-columns: 1fr;
+  }
+}

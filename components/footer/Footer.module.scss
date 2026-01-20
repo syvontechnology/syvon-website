@@ -1,0 +1,84 @@
+@use "@/styles/variables" as *;
+
+.footer {
+  background: $primary; // #0a2540
+  color: #e5e7eb;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $space-xxl $space-md;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: $space-xl;
+}
+
+/* Brand */
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  margin-top: $space-sm;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Section headings */
+.heading {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: $space-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    opacity: 0.75;
+    cursor: default;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: $space-md;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .container {
+    padding: $space-xl $space-md;
+    gap: $space-lg;
+  }
+
+  .brand {
+    max-width: 100%;
+  }
+}

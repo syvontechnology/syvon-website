@@ -1,0 +1,43 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(10, 37, 64, 0.12);
+  }
+}
+
+.media {
+  height: 160px;
+  background: linear-gradient(
+    135deg,
+    $primary-2 0%,
+    $accent 100%
+  );
+}
+
+.content {
+  padding: $space-lg;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: $space-sm;
+    color: $text-primary;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: $text-muted;
+  }
+}

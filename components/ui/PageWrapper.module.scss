@@ -1,0 +1,23 @@
+@use "@/styles/variables" as *;
+
+.wrapper {
+  min-height: 100vh;
+  padding-top: 140px; // header offset (easy to change later)
+  padding-left: $space-xl;
+  padding-right: $space-xl;
+  padding-bottom: $space-xxl;
+}
+
+.title {
+  margin-bottom: $space-xl;
+  color: $text-primary;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .wrapper {
+    padding-top: 120px;
+    padding-left: $space-md;
+    padding-right: $space-md;
+  }
+}
