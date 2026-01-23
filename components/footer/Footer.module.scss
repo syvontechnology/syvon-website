@@ -1,80 +1,111 @@
 @use "@/styles/variables" as *;
 
+/* =====================================
+   FOOTER BASE
+===================================== */
 .footer {
-  background: $primary; // #0a2540
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    $primary 0%,
+    #071b30 100%
+  );
   color: #e5e7eb;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* =====================================
+   TOP SECTION
+===================================== */
+.top {
+  padding: $space-xxl 0;
 }
 
 .container {
   max-width: $max-width;
   margin: 0 auto;
-  padding: $space-xxl $space-md;
+  padding: 0 $space-md;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: $space-xl;
 }
 
-/* Brand */
+/* =====================================
+   BRAND
+===================================== */
 .brand {
-  max-width: 320px;
+  max-width: 360px;
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #ffffff;
 }
 
 .description {
   margin-top: $space-sm;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Section headings */
+/* =====================================
+   SECTION HEADINGS
+===================================== */
 .heading {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: $space-sm;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: $space-md;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Lists */
+/* =====================================
+   LISTS
+===================================== */
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
 
   li {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-    opacity: 0.75;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 160ms ease, transform 160ms ease;
     cursor: default;
 
     &:hover {
-      opacity: 1;
+      color: #ffffff;
+      transform: translateX(4px);
     }
   }
 }
 
-/* Bottom bar */
+/* =====================================
+   BOTTOM BAR
+===================================== */
 .bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: $space-md;
   text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.15);
 }
 
-/* Mobile */
+/* =====================================
+   MOBILE
+===================================== */
 @media (max-width: 640px) {
+  .top {
+    padding: $space-xl 0;
+  }
+
   .container {
-    padding: $space-xl $space-md;
     gap: $space-lg;
   }
 

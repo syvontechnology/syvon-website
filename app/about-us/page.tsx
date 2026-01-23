@@ -4,23 +4,23 @@ import styles from "./AboutUs.module.scss";
 const domains = [
   {
     title: "Artificial Intelligence",
-    desc: "Building intelligent systems that augment human decision-making and automate complex processes responsibly.",
+    desc: "Engineering applied AI systems that enhance decision-making, automate workflows, and operate reliably at scale.",
   },
   {
     title: "Electric Mobility",
-    desc: "Driving sustainable transportation through smart EV systems, analytics, and infrastructure software.",
+    desc: "Developing intelligent software and analytics layers for EV platforms, energy optimization, and mobility infrastructure.",
   },
   {
     title: "AgriTech",
-    desc: "Empowering agriculture with data-driven, scalable, and farmer-first technology solutions.",
+    desc: "Creating data-driven agricultural solutions focused on sustainability, productivity, and real-world usability.",
   },
   {
     title: "Robotics & Automation",
-    desc: "Designing autonomous and semi-autonomous systems to improve efficiency and precision.",
+    desc: "Designing autonomous and semi-autonomous systems built for precision, reliability, and field deployment.",
   },
   {
     title: "Software Engineering",
-    desc: "Developing secure, scalable platforms with modern cloud-native architectures.",
+    desc: "Building secure, scalable, cloud-native platforms with clean architectures and long-term maintainability.",
   },
 ];
 
@@ -29,24 +29,22 @@ export default function AboutUsPage() {
     <PageWrapper title="About Us">
       <div className={styles.about}>
         {/* Intro */}
-        <section className={styles.intro}>
+        <section className={`${styles.intro} ${styles.animate}`}>
           <p>
             <strong>Syvon</strong> is an engineering-driven technology company
             focused on building next-generation solutions across deep-tech and
-            applied innovation domains. We combine research, engineering
-            excellence, and real-world problem solving to create systems that
-            scale sustainably.
+            applied innovation domains.
           </p>
 
           <p>
-            Our work spans Artificial Intelligence, Electric Mobility, AgriTech,
-            Robotics, and Software Platforms — unified by a single goal:{" "}
-            <strong>long-term impact over short-term gains</strong>.
+            We bring together research, engineering excellence, and real-world
+            problem solving to create systems that scale responsibly and deliver
+            long-term value.
           </p>
         </section>
 
         {/* Mission / Vision */}
-        <section className={styles.mv}>
+        <section className={`${styles.mv} ${styles.animate}`}>
           <div>
             <h3>Our Mission</h3>
             <p>
@@ -67,7 +65,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* Domains */}
-        <section className={styles.domains}>
+        <section className={`${styles.domains} ${styles.animate}`}>
           <h3>What We Do</h3>
 
           <div className={styles.domainGrid}>
@@ -81,14 +79,14 @@ export default function AboutUsPage() {
         </section>
 
         {/* Principles */}
-        <section className={styles.principles}>
+        <section className={`${styles.principles} ${styles.animate}`}>
           <h3>Our Engineering Principles</h3>
 
           <ul>
-            <li>Problem-first, technology-second approach</li>
+            <li>Problem-first, technology-second thinking</li>
             <li>Scalability and reliability by design</li>
-            <li>Security and ethics as core requirements</li>
-            <li>Long-term thinking over quick wins</li>
+            <li>Security and ethics as non-negotiables</li>
+            <li>Long-term impact over short-term gains</li>
             <li>Continuous learning and technical excellence</li>
           </ul>
         </section>

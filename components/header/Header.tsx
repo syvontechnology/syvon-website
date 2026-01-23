@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -32,11 +32,19 @@ export default function Header() {
     >
       <div className={styles.inner}>
         {/* Logo */}
-        <div className={styles.left}>
-          <Link href="/" className={styles.logo} onClick={closeMenu}>
-            Syvon Technology
-          </Link>
-        </div>
+       <div className={styles.left}>
+  <Link href="/" className={styles.logo} onClick={closeMenu}>
+    <Image
+      src="/logo.png"
+      alt="Syvon Technology Logo"
+      width={32}
+      height={32}
+      priority
+      className={styles.logoImg}
+    />
+    <span>Syvon Technology</span>
+  </Link>
+</div>
 
         {/* Desktop nav */}
         <nav className={styles.navDesktop} aria-label="Primary navigation">
