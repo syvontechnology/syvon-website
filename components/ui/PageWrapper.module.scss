@@ -1,8 +1,8 @@
 @use "@/styles/variables" as *;
 
 .wrapper {
-  min-height: 100vh;
-  padding-top: 14px; // header offset (easy to change later)
+  width: 100%;
+  padding-top: 40px; // no header math needed
   padding-left: $space-xl;
   padding-right: $space-xl;
   padding-bottom: $space-xxl;
@@ -16,7 +16,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .wrapper {
-    padding-top: 120px;
+    padding-top: 32px;
     padding-left: $space-md;
     padding-right: $space-md;
   }

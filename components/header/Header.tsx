@@ -51,18 +51,16 @@ export default function Header() {
           <Link href="/about-us" className={styles.navLink}>
             About
           </Link>
-          <Link href="/our-team" className={styles.navLink}>
+          {/* <Link href="/our-team" className={styles.navLink}>
             Team
-          </Link>
-          <Link href="/our-business" className={styles.navLink}>
-            Business
-          </Link>
+          </Link> */}
+        
           <Link href="/products" className={styles.navLink}>
             Products
           </Link>
-          <Link href="/careers" className={styles.navLink}>
+          {/* <Link href="/careers" className={styles.navLink}>
             Careers
-          </Link>
+          </Link> */}
         </nav>
 
         {/* Right actions */}
@@ -96,18 +94,18 @@ export default function Header() {
           <Link href="/about-us" onClick={closeMenu} className={styles.navMobileLink}>
             About
           </Link>
-          <Link href="/our-team" onClick={closeMenu} className={styles.navMobileLink}>
+          {/* <Link href="/our-team" onClick={closeMenu} className={styles.navMobileLink}>
             Team
           </Link>
           <Link href="/our-business" onClick={closeMenu} className={styles.navMobileLink}>
             Business
-          </Link>
+          </Link> */}
           <Link href="/products" onClick={closeMenu} className={styles.navMobileLink}>
             Products
           </Link>
-          <Link href="/careers" onClick={closeMenu} className={styles.navMobileLink}>
+          {/* <Link href="/careers" onClick={closeMenu} className={styles.navMobileLink}>
             Careers
-          </Link>
+          </Link> */}
 
           <Link
             href="/contact"

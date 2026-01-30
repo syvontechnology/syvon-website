@@ -1,4 +1,7 @@
+"use client";
+
 import { ReactNode } from "react";
+import PageHero from "@/components/PageHero/PageHero";
 import styles from "./PageWrapper.module.scss";
 
 export default function PageWrapper({
@@ -9,9 +12,12 @@ export default function PageWrapper({
   children: ReactNode;
 }) {
   return (
-    <main className={styles.wrapper}>
-      <h1 className={styles.title}>{title}</h1>
-      {children}
-    </main>
+    <>
+      <PageHero title={title} />
+
+      <main className={styles.wrapper}>
+        {children}
+      </main>
+    </>
   );
 }

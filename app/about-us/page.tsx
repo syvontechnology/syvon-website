@@ -23,7 +23,6 @@ const domains = [
     desc: "Building secure, scalable, cloud-native platforms with clean architectures and long-term maintainability.",
   },
 ];
-
 export default function AboutUsPage() {
   return (
     <PageWrapper title="About Us">
@@ -31,15 +30,15 @@ export default function AboutUsPage() {
         {/* Intro */}
         <section className={`${styles.intro} ${styles.animate}`}>
           <p>
-            <strong>Syvon</strong> is an engineering-driven technology company
-            focused on building next-generation solutions across deep-tech and
-            applied innovation domains.
+            <strong>Syvon Technology</strong> is an engineering-led company
+            focused on building reliable, scalable, and production-ready
+            deep-tech systems.
           </p>
 
           <p>
-            We bring together research, engineering excellence, and real-world
-            problem solving to create systems that scale responsibly and deliver
-            long-term value.
+            We work at the intersection of applied research and real-world
+            deployment—designing technology that performs beyond prototypes
+            and scales responsibly in complex environments.
           </p>
         </section>
 
@@ -48,25 +47,23 @@ export default function AboutUsPage() {
           <div>
             <h3>Our Mission</h3>
             <p>
-              To engineer intelligent, reliable, and scalable technology
-              solutions that solve real-world problems while remaining ethical,
-              sustainable, and future-ready.
+              To engineer intelligent systems that solve real problems with
+              clarity, precision, and long-term reliability.
             </p>
           </div>
 
           <div>
             <h3>Our Vision</h3>
             <p>
-              To become a globally trusted technology partner known for deep
-              engineering expertise, responsible innovation, and meaningful
-              societal impact.
+              To be a trusted global technology partner known for deep
+              engineering, ethical innovation, and systems that endure.
             </p>
           </div>
         </section>
 
         {/* Domains */}
         <section className={`${styles.domains} ${styles.animate}`}>
-          <h3>What We Do</h3>
+          <h3>Our Focus Areas</h3>
 
           <div className={styles.domainGrid}>
             {domains.map((item) => (
@@ -80,14 +77,14 @@ export default function AboutUsPage() {
 
         {/* Principles */}
         <section className={`${styles.principles} ${styles.animate}`}>
-          <h3>Our Engineering Principles</h3>
+          <h3>How We Engineer</h3>
 
           <ul>
-            <li>Problem-first, technology-second thinking</li>
-            <li>Scalability and reliability by design</li>
-            <li>Security and ethics as non-negotiables</li>
-            <li>Long-term impact over short-term gains</li>
-            <li>Continuous learning and technical excellence</li>
+            <li>Engineering decisions driven by real constraints</li>
+            <li>Systems designed for scale, safety, and maintainability</li>
+            <li>Security, reliability, and ethics built in—not added later</li>
+            <li>Clear architectures over unnecessary complexity</li>
+            <li>Continuous learning backed by execution</li>
           </ul>
         </section>
       </div>

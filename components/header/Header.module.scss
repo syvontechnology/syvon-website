@@ -1,35 +1,71 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-/* Header root */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
   z-index: 1200;
-  background: #ffffff;;
+  background: transparent;
+
   transition: background 280ms ease, box-shadow 280ms ease;
 }
 
-/* Scrolled state (solid bar) */
+/* ===============================
+   DEFAULT (OVER HERO IMAGE)
+================================ */
+.header {
+  .logo,
+  .navLink {
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .navLink:hover {
+    color: #ffffff;
+  }
+
+  .burger span {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* ===============================
+   SCROLLED STATE
+================================ */
 .scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 8px 28px rgba(12, 30, 50, 0.08);
   border-bottom: 1px solid $border;
+
+  .logo,
+  .navLink {
+    color: $text-primary;
+  }
+
+  .navLink:hover {
+    color: $primary-2;
+  }
+
+  .burger span {
+    background: $text-primary;
+  }
 }
 
-/* inner container */
+/* ===============================
+   INNER
+================================ */
 .inner {
   @include container;
   height: 72px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: $space-lg;
 }
 
-/* left area (logo) */
 .left {
   display: flex;
   align-items: center;
@@ -43,7 +79,6 @@
   gap: 10px;
   font-weight: 800;
   font-size: 20px;
-  color: $primary;
   white-space: nowrap;
 }
 
@@ -53,7 +88,7 @@
   object-fit: contain;
 }
 
-/* Desktop nav (hidden on mobile) */
+/* Desktop Nav */
 .navDesktop {
   display: flex;
   gap: $space-lg;
@@ -65,18 +100,12 @@
 }
 
 .navLink {
-  color: $text-primary;
   font-weight: 600;
-  padding: 6px 2px;
   text-decoration: none;
   position: relative;
+  padding: 6px 2px;
   transition: color 180ms ease;
 
-  &:hover {
-    color: $primary-2;
-  }
-
-  /* subtle underline animation */
   &:after {
     content: "";
     position: absolute;
@@ -87,97 +116,120 @@
     background: $primary-2;
     transition: width 220ms ease;
   }
+
   &:hover:after {
     width: 100%;
   }
 }
 
-/* Right area (CTA + burger) */
+/* Right */
 .right {
   display: flex;
   align-items: center;
   gap: $space-md;
 }
 
-/* Desktop contact CTA */
+/* CTA */
+/* CTA – Header Contact Button */
 .contactBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $primary-2;
-  color: white;
-  padding: 8px 14px;
+
+  background: linear-gradient(135deg, $primary-2, $primary);
+  color: #ffffff;
+
+  padding: 10px 18px;
   border-radius: 10px;
+
   font-weight: 700;
+  font-size: 0.9rem;
   text-decoration: none;
+
+  box-shadow: 0 10px 24px rgba(27, 77, 137, 0.35);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(27, 77, 137, 0.55);
+    filter: brightness(1.05);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(27, 77, 137, 0.4);
+  }
 
   @include mobile {
     display: none;
   }
 }
 
-/* Burger button */
+
+/* Burger */
 .burger {
   display: none;
   width: 40px;
   height: 36px;
+
   background: transparent;
   border: none;
+  cursor: pointer;
+
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  cursor: pointer;
 
   span {
     display: block;
     width: 22px;
     height: 2px;
-    background: $text-primary;
     margin: 5px 0;
     transition: transform 180ms ease, opacity 180ms ease;
   }
 }
 
-/* burger visible on mobile */
 @include mobile {
   .burger {
     display: inline-flex;
   }
 }
 
-/* Animated mobile menu wrapper (collapsible) */
+/* ===============================
+   MOBILE MENU
+================================ */
 .mobileMenu {
   position: absolute;
+  top: 72px;
   left: 0;
   right: 0;
-  top: 72px;
-  transform-origin: top center;
-  transform: translateY(-8px) scaleY(0.96);
+
   opacity: 0;
+  transform: translateY(-8px) scaleY(0.96);
   pointer-events: none;
+
   transition: opacity 220ms ease, transform 220ms ease;
-  z-index: 1100;
 }
 
-/* open state */
 .mobileOpen {
-  transform: translateY(0) scaleY(1);
   opacity: 1;
+  transform: translateY(0) scaleY(1);
   pointer-events: auto;
 }
 
-/* Mobile nav contents */
 .navMobile {
   background: $surface;
   border-bottom: 1px solid $border;
   box-shadow: 0 18px 40px rgba(12, 30, 50, 0.06);
+
+  padding: $space-lg;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: $space-lg;
 }
 
-/* Mobile link */
 .navMobileLink {
   padding: 12px 0;
   font-weight: 600;
@@ -186,29 +238,16 @@
   border-radius: 8px;
 
   &:hover {
-    background: rgba(10, 45, 80, 0.03);
+    background: rgba(10, 45, 80, 0.04);
   }
 }
 
-/* mobile CTA inside menu */
 .mobileContact {
   margin-top: 8px;
-  display: inline-block;
   background: $primary-2;
   color: #fff;
   padding: 12px;
   border-radius: 8px;
   text-align: center;
   font-weight: 700;
-}
-
-/* Helper when nav is visually present on desktop, mobile menu hidden */
-@include mobile {
-  .navDesktop {
-    display: none;
-  }
-
-  .mobileMenu {
-    display: block;
-  }
 }

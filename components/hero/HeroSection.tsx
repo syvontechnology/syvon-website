@@ -40,11 +40,23 @@ export default function HeroSection() {
 
   return (
     <section className={styles.hero}>
-      {/* Animated Deep-Tech Background */}
-      <div className={styles.background}>
-        <span className={styles.layer} />
-        <span className={styles.layer} />
-        <span className={styles.layer} />
+      {/* Deep-tech animated background */}
+      <div className={styles.background} aria-hidden="true">
+        <div className={styles.gridLayer} />
+
+        {Array.from({ length: 22 }).map((_, i) => (
+          <span
+            key={i}
+            className={styles.node}
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${10 + Math.random() * 10}s`,
+            }}
+          />
+        ))}
+
+        <div className={styles.overlay} />
       </div>
 
       <Container>
@@ -65,12 +77,16 @@ export default function HeroSection() {
             </p>
 
             <div className={styles.actions}>
-              <button className="primary-btn">Explore Our Businesses</button>
-              <button className="secondary-btn">Talk to Our Team</button>
+              <button className={styles.primaryBtn}>
+                Explore Our Businesses
+              </button>
+              <button className={styles.secondaryBtn}>
+                Talk to Our Team
+              </button>
             </div>
           </div>
 
-          {/* RIGHT HORIZONTAL DEPTH CAROUSEL */}
+          {/* RIGHT CAROUSEL */}
           <div className={styles.carouselWrapper}>
             {items.map((item, index) => {
               const offset = index - active;

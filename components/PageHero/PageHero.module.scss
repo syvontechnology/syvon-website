@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+/* =====================================
+   PAGE HERO WRAPPER
+===================================== */
+.pageHero {
+  position: relative;
+  height: 180px;
+  padding-top: 72px; // header overlap
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+/* =====================================
+   CONTENT
+===================================== */
+.content {
+  position: relative;
+  z-index: 2;
+
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.96);
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* =====================================
+   DEEP TECH BACKGROUND (SAME AS HERO)
+===================================== */
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at top left,
+    #0a2540 0%,
+    #020617 65%
+  );
+}
+
+/* Grid layer (static but alive) */
+.gridLayer {
+  position: absolute;
+  inset: -50%;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+  background-size: 80px 80px;
+  transform: perspective(900px) rotateX(55deg);
+}
+
+/* Dark cinematic overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.65)
+  );
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+@include mobile {
+  .pageHero {
+    height: 140px;
+  }
+
+  .content h1 {
+    font-size: 26px;
+  }
+}

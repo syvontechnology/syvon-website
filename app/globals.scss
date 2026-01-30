@@ -11,6 +11,7 @@
   box-sizing: border-box;
 }
 
+
 html,
 body {
   margin: 0;
@@ -63,35 +64,6 @@ p {
 }
 
 /* Buttons */
-.primary-btn {
-  background: $primary-2;
-  color: white;
-  padding: 14px 24px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(27, 77, 137, 0.15);
-  }
-}
-
-.secondary-btn {
-  background: transparent;
-  border: 1px solid $primary-2;
-  color: $primary-2;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-}
 
 /* Responsive typography */
 @include tablet {
@@ -108,4 +80,19 @@ p {
   h1 {
     font-size: 32px;
   }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1; // 🔥 THIS FIXES FOOTER + SCROLL
 }

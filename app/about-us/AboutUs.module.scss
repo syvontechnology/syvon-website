@@ -3,19 +3,18 @@
 .about {
   display: flex;
   flex-direction: column;
-  // gap: $space-xxl;
-  
+  gap: $space-xxl;
 }
 
 /* Subtle entrance animation */
 .animate {
-  animation: fadeUp 0.7s ease both;
+  animation: fadeUp 0.6s ease both;
 }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -26,15 +25,17 @@
 /* Intro */
 .intro {
   max-width: 860px;
+  margin: 0 auto;
 
   p {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.02rem;
+    line-height: 1.78;
+    letter-spacing: 0.01em;
     color: $text-muted;
   }
 
   p + p {
-    // margin-top: $space-md;
+    margin-top: $space-md;
   }
 
   strong {
@@ -43,6 +44,7 @@
   }
 }
 
+
 /* Mission / Vision */
 .mv {
   display: grid;
@@ -50,12 +52,12 @@
   gap: $space-xl;
 
   h3 {
-    // margin-bottom: $space-sm;
+    margin-bottom: $space-sm;
     color: $primary;
   }
 
   p {
-    line-height: 1.7;
+    line-height: 1.65;
     color: $text-muted;
   }
 }
@@ -63,7 +65,7 @@
 /* Domains */
 .domains {
   h3 {
-    // margin-bottom: $space-lg;
+    margin-bottom: $space-lg;
   }
 }
 
@@ -78,16 +80,18 @@
   border: 1px solid $border;
   border-radius: 16px;
   padding: $space-lg;
+
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   h4 {
     margin-bottom: $space-sm;
     color: $text-primary;
+    font-weight: 600;
   }
 
   p {
     font-size: 0.95rem;
-    line-height: 1.65;
+    line-height: 1.6;
     color: $text-muted;
   }
 
@@ -106,12 +110,12 @@
   }
 
   ul {
-    padding-left: 20px;
+    padding-left: 18px;
     color: $text-muted;
 
     li {
       margin-bottom: 12px;
-      line-height: 1.65;
+      line-height: 1.6;
     }
   }
 }
