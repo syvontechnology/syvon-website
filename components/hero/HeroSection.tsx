@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import Container from "@/components/layout/Container";
 import styles from "./HeroSection.module.scss";
 
+type NodeStyle = {
+  left: string;
+  animationDelay: string;
+  animationDuration: string;
+};
+
 const items = [
   {
     title: "Artificial Intelligence",
@@ -29,7 +35,9 @@ const items = [
 
 export default function HeroSection() {
   const [active, setActive] = useState(0);
+  const [nodes, setNodes] = useState<NodeStyle[]>([]);
 
+  /* Carousel rotation */
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % items.length);
@@ -38,21 +46,28 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  /* Generate animated nodes ONLY on client */
+  useEffect(() => {
+    const generatedNodes: NodeStyle[] = Array.from({ length: 22 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 10}s`,
+      animationDuration: `${10 + Math.random() * 10}s`,
+    }));
+
+    setNodes(generatedNodes);
+  }, []);
+
   return (
     <section className={styles.hero}>
       {/* Deep-tech animated background */}
       <div className={styles.background} aria-hidden="true">
         <div className={styles.gridLayer} />
 
-        {Array.from({ length: 22 }).map((_, i) => (
+        {nodes.map((style, i) => (
           <span
             key={i}
             className={styles.node}
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${10 + Math.random() * 10}s`,
-            }}
+            style={style}
           />
         ))}
 
