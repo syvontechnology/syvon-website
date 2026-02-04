@@ -30,11 +30,11 @@ export default function Footer() {
             <h4 className={styles.heading}>Company</h4>
             <ul className={styles.list}>
               <li>About</li>
-              <li>Team</li>
+              {/* <li>Team</li> */}
               {/* <li>Business</li> */}
               <li>Products</li>
-              <li>Careers</li>
-              <li>CSR</li>
+              {/* <li>Careers</li> */}
+              {/* <li>CSR</li> */}
             </ul>
           </div>
 

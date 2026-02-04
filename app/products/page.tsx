@@ -7,7 +7,7 @@ const products = [
     title: "Syvon EV Scooty",
     description:
       "Experience eco-friendly urban travel. Long-range battery, smart features, and unmatched style.",
-    image: "/images/products/ev-scooty.jpg",
+    image: "/images/products/Front_View.jpg",
     href: "/products/syvon-ev-scooty",
   },
   {

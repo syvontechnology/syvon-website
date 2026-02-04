@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Container from "@/components/layout/Container";
 import styles from "./HeroSection.module.scss";
@@ -91,14 +91,16 @@ export default function HeroSection() {
               scalable innovation.
             </p>
 
-            <div className={styles.actions}>
-              <button className={styles.primaryBtn}>
-                Explore Our Businesses
-              </button>
-              <button className={styles.secondaryBtn}>
-                Talk to Our Team
-              </button>
-            </div>
+           <div className={styles.actions}>
+  <Link href="/contact" className={styles.primaryBtn}>
+    Explore Our Businesses
+  </Link>
+
+  <Link href="/contact" className={styles.secondaryBtn}>
+    Talk to Our Team
+  </Link>
+</div>
+
           </div>
 
           {/* RIGHT CAROUSEL */}
