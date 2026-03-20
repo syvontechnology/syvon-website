@@ -35,6 +35,22 @@
   }
 }
 
+/* Definition */
+.definition {
+  max-width: 860px;
+  margin: 0 auto;
+
+  h3 {
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.7;
+    margin-bottom: $space-sm;
+  }
+}
+
 /* Hero Block */
 .heroBlock {
   display: grid;
@@ -47,10 +63,14 @@
   }
 }
 
-.imageWrap img {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+.imageWrap {
+  max-width: 420px;
+  margin: 0 auto;
+
+  img {
+    width: 100%;
+    border-radius: 18px;
+  }
 }
 
 .heroText {
@@ -94,6 +114,35 @@
   }
 }
 
+/* Use Cases */
+.useCases h3 {
+  margin-bottom: $space-lg;
+}
+
+.useGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $space-lg;
+
+  div {
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: 14px;
+    padding: $space-md;
+
+    h4 {
+      margin-bottom: $space-xs;
+      color: $text-primary;
+    }
+
+    p {
+      font-size: 0.92rem;
+      color: $text-muted;
+      line-height: 1.6;
+    }
+  }
+}
+
 /* Capabilities & Ops */
 .capabilities ul,
 .ops ul {
@@ -133,9 +182,8 @@
   border-radius: 20px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
 }
-/* =========================
-   Call To Action
-========================= */
+
+/* CTA */
 .cta {
   text-align: center;
   margin-top: $space-xxl;
@@ -162,7 +210,6 @@
   }
 }
 
-/* Primary Button (reuse EV style language) */
 .primaryBtn {
   display: inline-block;
   background: linear-gradient(135deg, #1b4d89, #0a2540);
@@ -178,16 +225,5 @@
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 26px 60px rgba(27, 77, 137, 0.6);
-  }
-}
-.imageWrap {
-  max-width: 420px;   /* ⬅ controls visible size */
-  margin: 0 auto;     /* centers the image */
-
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
   }
 }

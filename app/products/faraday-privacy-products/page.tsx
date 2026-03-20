@@ -11,24 +11,39 @@ export default function FaradayPrivacyProductsPage() {
   return (
     <PageWrapper title="Faraday Privacy Products">
       <div className={styles.page}>
-        {/* Intro */}
-        {/* Second Image */}
+        {/* Image */}
         <section className={`${styles.imageOnly} ${styles.animate}`}>
           <img
             src="/images/products/faraday1.jpg"
             alt="Faraday bag privacy protection"
           />
         </section>
+
+        {/* Intro */}
         <section className={`${styles.intro} ${styles.animate}`}>
           <p>
-            Syvon Faraday Privacy Products are engineered to secure devices and
-            sensitive environments from unauthorized signals, tracking, and
-            electromagnetic threats — enabling complete privacy in critical
-            situations, meetings, and field operations.
+            Syvon Faraday Privacy Products are engineered to completely isolate
+            devices from all wireless communication — preventing tracking,
+            hacking, signal interception, and data theft. Designed for
+            high-security environments, these solutions ensure total digital
+            silence when it matters most.
           </p>
         </section>
 
-        
+        {/* What is Faraday Bag */}
+        <section className={`${styles.definition} ${styles.animate}`}>
+          <h3>What is a Faraday Bag?</h3>
+          <p>
+            A Faraday bag is a secure enclosure that blocks all electromagnetic
+            signals using advanced conductive materials. It creates a protective
+            shield — known as a Faraday cage — that prevents devices from sending
+            or receiving any wireless communication.
+          </p>
+          <p>
+            This ensures complete protection against GPS tracking, signal
+            interception, remote access, and unauthorized data transmission.
+          </p>
+        </section>
 
         {/* Variants */}
         <section className={`${styles.variants} ${styles.animate}`}>
@@ -56,6 +71,46 @@ export default function FaradayPrivacyProductsPage() {
             <li>Rugged, lightweight, field-ready construction</li>
           </ul>
         </section>
+
+        {/* Use Cases */}
+        <section className={`${styles.useCases} ${styles.animate}`}>
+          <h3>Key Applications</h3>
+
+          <div className={styles.useGrid}>
+            <div>
+              <h4>Vehicle Security</h4>
+              <p>
+                Protect key fobs from relay attacks and signal boosting used by
+                car thieves to unlock and steal vehicles.
+              </p>
+            </div>
+
+            <div>
+              <h4>Privacy & Tracking Protection</h4>
+              <p>
+                Block GPS, cellular, and wireless signals to prevent location
+                tracking and unauthorized surveillance.
+              </p>
+            </div>
+
+            <div>
+              <h4>Data & Evidence Protection</h4>
+              <p>
+                Prevent remote wiping, hacking, or tampering of devices —
+                critical for law enforcement and forensic use.
+              </p>
+            </div>
+
+            <div>
+              <h4>Secure Environments</h4>
+              <p>
+                Create signal-free zones in meetings, defense operations, or
+                sensitive facilities.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Image + Core Message */}
         <section className={`${styles.heroBlock} ${styles.animate}`}>
           <div className={styles.imageWrap}>
@@ -73,7 +128,11 @@ export default function FaradayPrivacyProductsPage() {
               and unintended transmissions.
             </p>
             <p>
-              Designed for professionals who operate in privacy-critical,
+              Simply place your device inside and seal the pouch — instantly
+              creating a complete signal isolation environment.
+            </p>
+            <p>
+              Designed for professionals operating in privacy-critical,
               high-risk, or restricted environments.
             </p>
           </div>
@@ -99,25 +158,24 @@ export default function FaradayPrivacyProductsPage() {
           <ul>
             <li>Prevents remote activation & data tampering</li>
             <li>Reduces SIGINT visibility</li>
-            <li>Suitable for law enforcement, defense & intelligence use</li>
+            <li>Trusted in defense, law enforcement, corporate, and personal security applications</li>
             <li>Cost-effective alternative to metal enclosures</li>
             <li>Reusable, rugged & mission-ready</li>
           </ul>
         </section>
 
-        {/* Call to Action */}
+        {/* CTA */}
         <section className={`${styles.cta} ${styles.animate}`}>
-        <h3>Interested in Faraday Privacy Products?</h3>
-        <p>
-           Contact our team to discuss requirements, pricing, and bulk or
-           professional deployment options.
+          <h3>Interested in Faraday Privacy Products?</h3>
+          <p>
+            Contact our team to discuss requirements, pricing, and bulk or
+            professional deployment options.
           </p>
 
-        <a href="/contact" className={styles.primaryBtn}>
-         Contact Sales
-        </a>
+          <a href="/contact" className={styles.primaryBtn}>
+            Contact Sales
+          </a>
         </section>
-        
       </div>
     </PageWrapper>
   );
