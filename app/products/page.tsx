@@ -14,7 +14,7 @@ const products = [
     title: "Faraday Privacy Products",
     description:
       "Protect your privacy and devices from unauthorized tracking, EMPs, and secure your private meetings.",
-    image: "/images/products/faraday-bags.jpg",
+    image: "/images/products/faraday1.jpg",
     href: "/products/faraday-privacy-products",
   },
 ];
