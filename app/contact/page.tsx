@@ -10,17 +10,15 @@ export default function ContactPage() {
   return (
     <PageWrapper title="Contact Us">
       <main className={styles.page}>
-        {/* Intro text below banner */}
+        {/* Intro */}
         <section className={styles.intro}>
           <p>
-            Have a question, proposal, or idea?
-            We’d love to hear from you.
+            Have a question, proposal, or idea? We’d love to hear from you.
           </p>
         </section>
 
-        {/* Content */}
+        {/* Contact Content */}
         <section className={styles.content}>
-          {/* Left info */}
           <div className={styles.info}>
             <h2>Let’s talk</h2>
             <p>
@@ -29,40 +27,24 @@ export default function ContactPage() {
             </p>
 
             <div className={styles.details}>
-              <div>
+              <div className={styles.item}>
                 <span>Email</span>
-                <a href="mailto:contact@syvon.com">contact@syvon.com</a>
+                <a href="mailto:ceo@syvontechnology.com">
+                  ceo@syvontechnology.com
+                </a>
               </div>
-              <div>
+
+              <div className={styles.item}>
+                <span>Phone</span>
+                <a href="tel:+919850138917">+91 98501 38917</a>
+              </div>
+
+              <div className={styles.item}>
                 <span>Location</span>
-                <p>India</p>
+                <p>Loni Bk — 413736, India</p>
               </div>
             </div>
           </div>
-
-          {/* Form */}
-          <form className={styles.form}>
-            <div className={styles.field}>
-              <label htmlFor="name">Name</label>
-              <input id="name" type="text" placeholder="Your full name" />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" />
-            </div>
-
-            <div className={styles.field}>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                rows={5}
-                placeholder="Tell us how we can help"
-              />
-            </div>
-
-            <button type="submit">Send Message</button>
-          </form>
         </section>
       </main>
     </PageWrapper>
