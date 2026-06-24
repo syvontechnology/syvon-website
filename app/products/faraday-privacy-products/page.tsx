@@ -2,9 +2,11 @@ import PageWrapper from "@/components/ui/PageWrapper";
 import styles from "./faraday-privacy-products.module.scss";
 
 const variants = [
+  { name: "Car Key Pouch", weight: "35 ± 5 g" },
   { name: "Mobile Pouch", weight: "57 ± 5 g" },
   { name: "Tablet Pouch", weight: "127 ± 10 g" },
   { name: "Laptop Pouch", weight: "158 ± 10 g" },
+  { name: "Faraday Box", weight: "350 ± 10g" },
 ];
 
 export default function FaradayPrivacyProductsPage() {

@@ -1,11 +1,11 @@
 import HeroSection from "@/components/hero/HeroSection";
-import BusinessCards from "@/components/sections/BusinessCards";
+// import SignalDemo from "@/components/sections/SignalDemo";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <BusinessCards />
+      {/* <SignalDemo /> */}
     </>
   );
 }

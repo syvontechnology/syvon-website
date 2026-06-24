@@ -1,0 +1,43 @@
+.demo {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.visual {
+  margin-top: 40px;
+  position: relative;
+  height: 120px;
+}
+
+.phone {
+  font-size: 60px;
+  transition: transform 0.6s ease;
+}
+
+.signal {
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  right: 40%;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+/* ACTIVE STATE */
+.active {
+  transform: translateY(-10px);
+}
+
+.off {
+  opacity: 0;
+}
+
+.result {
+  margin-top: 20px;
+  font-weight: 600;
+}
