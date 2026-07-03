@@ -25,14 +25,17 @@ export default function Header() {
     });
   };
 
+  const lastPath = useRef(pathname);
+
   useEffect(() => {
-    if (menuOpen) {
+    if (lastPath.current !== pathname) {
+      lastPath.current = pathname;
       const timer = setTimeout(() => {
         setMenuOpen(false);
       }, 0);
       return () => clearTimeout(timer);
     }
-  }, [pathname, menuOpen]);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
