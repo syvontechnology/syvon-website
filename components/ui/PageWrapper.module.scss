@@ -1,23 +1,14 @@
 @use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
 .wrapper {
   width: 100%;
-  padding-top: 40px; // no header math needed
-  padding-left: $space-xl;
-  padding-right: $space-xl;
-  padding-bottom: $space-xxl;
-}
-
-.title {
-  margin-bottom: $space-xl;
-  color: $text-primary;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .wrapper {
-    padding-top: 32px;
-    padding-left: $space-md;
-    padding-right: $space-md;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 24px 24px $space-xxl 24px;
+  
+  @include mobile {
+    padding: 16px 16px $space-xl 16px;
   }
 }
+

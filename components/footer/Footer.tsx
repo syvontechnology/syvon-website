@@ -51,11 +51,12 @@ export default function Footer() {
             <div className={styles.contactItem}>
               <span>Phone</span>
               <a href="tel:+919850138917">+91 98501 38917</a>
+              <a href="tel:+919021494113">+91 90214 94113</a>
             </div>
 
             <div className={styles.contactItem}>
               <span>Location</span>
-              <p>Loni Bk — 413736, India</p>
+              <p>Shirdi, Maharashtra</p>
             </div>
           </div>
         </div>

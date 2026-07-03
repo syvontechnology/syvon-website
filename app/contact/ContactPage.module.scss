@@ -1,93 +1,73 @@
 @use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
 
-/* =========================
-   PAGE
-========================= */
 .page {
-  padding: $space-xl $space-md;
-  max-width: 900px;
+  padding: 40px 0;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-/* =========================
-   INTRO
-========================= */
 .intro {
   text-align: center;
-  margin-bottom: $space-xl;
+  margin-bottom: 48px;
 
   p {
-    font-size: 1.05rem;
-    color: $text-muted;
+    font-size: 1.2rem;
+    color: $text-secondary;
   }
 }
 
-/* =========================
-   CONTENT
-========================= */
 .content {
   display: flex;
   justify-content: center;
 }
 
-/* =========================
-   INFO CARD
-========================= */
 .info {
   width: 100%;
   max-width: 600px;
-  padding: $space-lg;
-  border-radius: 16px;
-
-  background: $surface;   // ✅ FIXED
-  border: 1px solid $border;
+  padding: 40px;
+  
+  @include mobile {
+    padding: 24px;
+  }
 
   h2 {
-    font-size: 1.6rem;
-    margin-bottom: $space-sm;
-    color: $text-primary;  // ✅ FIXED
+    font-size: 2rem;
+    margin: 0 0 12px 0;
+    color: #ffffff;
   }
 
   p {
     font-size: 0.95rem;
-    color: $text-muted;    // ✅ FIXED
-    margin-bottom: $space-lg;
+    color: $text-muted;
+    margin: 0 0 32px 0;
     line-height: 1.6;
   }
 }
 
-/* =========================
-   DETAILS
-========================= */
 .details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
-/* =========================
-   ITEM
-========================= */
 .item {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-
-  span {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: $text-muted;
-  }
-
-  a,
-  p {
-    font-size: 1rem;
-    font-weight: 600;
-    color: $text-primary;   // ✅ FIXED
+  gap: 8px;
+  
+  a, p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: 0;
+    width: fit-content;
+    
+    @include mobile {
+      font-size: 1rem;
+    }
   }
 
   a:hover {
@@ -96,15 +76,20 @@
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 640px) {
-  .page {
-    padding: $space-lg $space-sm;
-  }
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $text-muted;
 
-  .info {
-    padding: $space-md;
+  span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  
+  svg {
+    color: $primary;
   }
 }
