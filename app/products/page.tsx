@@ -9,18 +9,18 @@ const products = [
   {
     title: "Syvon EV Scooty",
     description:
-      "Experience eco-friendly urban travel. Long-range battery, smart features, and unmatched style.",
+      "A heavy-duty, smart electric mobility platform designed for urban transit operations. Features digital telemetry displays, fast charging, and customizable safety profiles.",
     image: "/images/products/Front_View.jpg",
     href: "/products/syvon-ev-scooty",
-    glow: "rgba(99, 102, 241, 0.12)",
+    glow: "rgba(59, 130, 246, 0.08)",
   },
   {
     title: "Faraday Privacy Products",
     description:
-      "Protect your privacy and devices from unauthorized tracking, EMPs, and secure your private meetings.",
+      "Military-grade signal isolation pouches and boxes engineered to protect critical devices from RF tracking, data interception, and unauthorized remote access.",
     image: "/images/products/faraday1.jpg",
     href: "/products/faraday-privacy-products",
-    glow: "rgba(16, 185, 129, 0.12)",
+    glow: "rgba(99, 102, 241, 0.08)",
   },
 ];
 

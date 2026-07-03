@@ -59,33 +59,32 @@ export default function AboutUsPage() {
         {/* Intro */}
         <motion.section variants={itemVariants} className={styles.intro}>
           <p>
-            <strong className={styles.highlightText}>Syvon Technology</strong> is an engineering-led company
-            focused on building reliable, scalable, and production-ready
-            deep-tech systems.
+            <strong className={styles.highlightText}>Syvon Technology</strong> is a high-end product engineering agency 
+            focused on building production-ready digital platforms and intelligent AI systems.
           </p>
 
           <p>
-            We work at the intersection of applied research and real-world
-            deployment—designing technology that performs beyond prototypes
-            and scales responsibly in complex environments.
+            We operate at the intersection of technical excellence and strategic business growth. 
+            We do not build prototypes that gather dust—we build resilient, production-ready software architectures 
+            designed to scale with your business and deliver measurable outcomes.
           </p>
         </motion.section>
 
         {/* Mission / Vision Cards */}
         <motion.section variants={itemVariants} className={styles.mv}>
-          <SpotlightCard className={styles.mvCard} glowColor="rgba(99, 102, 241, 0.06)">
+          <SpotlightCard className={styles.mvCard} glowColor="rgba(59, 130, 246, 0.08)">
             <h3>Our Mission</h3>
             <p>
-              To engineer intelligent systems that solve real problems with
-              clarity, precision, and long-term reliability.
+              To engineer intelligent software platforms that solve complex business challenges with 
+              uncompromising speed, clean architecture, and long-term durability.
             </p>
           </SpotlightCard>
 
-          <SpotlightCard className={styles.mvCard} glowColor="rgba(139, 92, 246, 0.06)">
+          <SpotlightCard className={styles.mvCard} glowColor="rgba(99, 102, 241, 0.08)">
             <h3>Our Vision</h3>
             <p>
-              To be a trusted global technology partner known for deep
-              engineering, ethical innovation, and systems that endure.
+              To be the trusted technology partner for global startups and enterprises, recognized 
+              for craftsmanship, velocity, and systems that scale seamlessly.
             </p>
           </SpotlightCard>
         </motion.section>

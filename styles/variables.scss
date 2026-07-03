@@ -1,19 +1,19 @@
 /* styles/variables.scss */
 
 /* Colors */
-$primary: #6366f1;       /* Electric Indigo */
-$primary-2: #8b5cf6;     /* Royal Violet */
-$accent: #10b981;        /* High-end Emerald */
+$primary: #3B82F6;       /* Modern Electric Blue */
+$primary-2: #6366F1;     /* Royal Indigo */
+$accent: #10B981;        /* Modern Mint */
 
-$bg: #030712;            /* Deep space black / obsidian */
-$surface: rgba(17, 24, 39, 0.45); /* Translucent glass surface */
-$surface-hover: rgba(31, 41, 55, 0.6);
-$border: rgba(255, 255, 255, 0.08); /* Translucent border */
-$border-hover: rgba(255, 255, 255, 0.18);
+$bg: #FAF9F6;            /* Premium warm off-white (Alabaster) */
+$surface: rgba(255, 255, 255, 0.7); /* Translucent warm glass */
+$surface-hover: rgba(255, 255, 255, 0.9);
+$border: rgba(15, 23, 42, 0.06); /* Ultra-thin border */
+$border-hover: rgba(15, 23, 42, 0.12);
 
-$text-primary: #f9fafb;   /* Near white */
-$text-secondary: #e5e7eb; /* Soft grey */
-$text-muted: #9ca3af;     /* Muted grey */
+$text-primary: #0F172A;   /* Deep slate charcoal (headings) */
+$text-secondary: #334155; /* Warm graphite (body) */
+$text-muted: #64748B;     /* Soft slate grey (captions) */
 
 /* Layout */
 $max-width: 1200px;
@@ -26,8 +26,6 @@ $space-lg: 32px;
 $space-xl: 64px;
 $space-xxl: 96px;
 
-/* Typography */
-$font-base: "Plus Jakarta Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont,
-  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$font-display: "Space Grotesk", sans-serif;
-
+/* Typography (Integrated Google Fonts CSS Variables) */
+$font-base: var(--font-sans), Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-display: var(--font-display), "Space Grotesk", sans-serif;

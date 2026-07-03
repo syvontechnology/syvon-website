@@ -1,91 +1,148 @@
+@use "sass:color";
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
-/* =====================================
-   HERO BASE
- ===================================== */
-.hero {
+.wrapper {
   position: relative;
-  padding-top: 120px;
-  padding-bottom: $space-xxl;
-  min-height: 95vh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  
-  @include mobile {
-    min-height: auto;
-    padding-top: 100px;
-    padding-bottom: $space-xl;
-  }
 }
 
 /* =====================================
-   GRID
+   DEEP TECH BACKGROUND
  ===================================== */
-.grid {
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #FAF9F6; /* Alabaster base background */
+}
+
+.gridLayer {
+  position: absolute;
+  inset: -100% -50% -50% -50%;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform: perspective(800px) rotateX(60deg);
+  opacity: 0.8;
+}
+
+.blob {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.blobPrimary {
+  top: -15%;
+  right: 10%;
+  background: radial-gradient(circle, $primary 0%, transparent 70%);
+}
+
+.blobAccent {
+  bottom: 20%;
+  left: -10%;
+  background: radial-gradient(circle, $primary-2 0%, transparent 70%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 249, 246, 0.2),
+    #FAF9F6 95%
+  );
+}
+
+/* =====================================
+   1. HERO GRID & LAYOUT
+ ===================================== */
+.heroSection {
   position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 80px;
-  align-items: center;
+  padding: 180px 0 80px 0;
+  z-index: 1;
 
   @include mobile {
-    grid-template-columns: 1fr;
-    gap: 60px;
+    padding: 130px 0 40px 0;
   }
 }
 
-/* =====================================
-   LEFT CONTENT
- ===================================== */
-.content {
-  max-width: 720px;
-
-  h1 {
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: $space-md;
-    letter-spacing: -0.03em;
-    
-    @include tablet {
-      font-size: 52px;
-    }
-    
-    @include mobile {
-      font-size: 40px;
-    }
-  }
-
-  p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: $space-xl;
-    color: $text-secondary;
-  }
-}
-
-.gradientText {
-  background: linear-gradient(135deg, $primary 0%, $primary-2 50%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* =====================================
-   ACTIONS & BUTTONS
- ===================================== */
-.actions {
-  display: flex;
-  gap: $space-md;
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
   align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.heroContent {
+  max-width: 100%;
+  text-align: left;
+}
+
+.heroBadge {
+  display: inline-flex;
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: $text-primary;
+  margin: 0 0 24px 0;
+
+  @include tablet {
+    font-size: 2.6rem;
+  }
+  @include mobile {
+    font-size: 2.1rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: $text-secondary;
+  margin: 0 0 36px 0;
+  max-width: 620px;
+
+  @include mobile {
+    font-size: 0.98rem;
+  }
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
 
   @include mobile {
     flex-direction: column;
-    align-items: stretch;
     width: 100%;
+    gap: 12px;
   }
 }
 
@@ -94,23 +151,23 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #ffffff;
-  color: #030712;
+  background: $text-primary;
+  color: #ffffff;
   padding: 16px 32px;
   border-radius: 9999px;
   font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+  font-size: 0.95rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   svg {
     transition: transform 0.2s ease;
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.95);
+    background: #1e293b;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
 
     svg {
       transform: translateX(3px);
@@ -120,174 +177,527 @@
   &:active {
     transform: translateY(0);
   }
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .secondaryBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.6);
+  color: $text-primary;
   padding: 16px 32px;
   border-radius: 9999px;
   font-weight: 600;
-  font-size: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+  border: 1px solid $border;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.16);
     transform: translateY(-2px);
   }
 
   &:active {
     transform: translateY(0);
   }
+
+  @include mobile {
+    width: 100%;
+  }
 }
 
 /* =====================================
-   CAROUSEL
+   INTERACTIVE NETWORK NODE STYLES
  ===================================== */
-.carouselWrapper {
-  position: relative;
-  height: 400px;
-  width: 100%;
+.heroVisual {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  @include mobile {
-    height: 380px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    max-width: 320px;
+    margin-top: 24px;
   }
 }
 
-.carouselGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(60px);
-  opacity: 0.18;
-  transition: background 0.8s ease;
+.visualContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.networkSvg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.nodeGroup {
+  cursor: pointer;
+}
+
+.nodeText {
   pointer-events: none;
-  z-index: 0;
+  user-select: none;
 }
 
-.card {
-  position: absolute;
-  width: 340px;
+/* =====================================
+   2. STATS SECTION
+ ===================================== */
+.statsSection {
+  position: relative;
+  z-index: 1;
+  padding: 24px 0 60px 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.statCard {
   padding: 24px;
-  border-radius: 20px;
-  background: rgba(17, 24, 39, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              opacity 0.6s ease,
-              border-color 0.6s ease;
-  will-change: transform, opacity;
-
-  @include mobile {
-    width: 300px;
-  }
-}
-
-.cardActive {
-  background: rgba(25, 30, 45, 0.6);
-}
-
-.cardHeader {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+}
+
+.statNum {
+  font-family: $font-display;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: $text-primary;
+  background: linear-gradient(135deg, $primary 0%, $primary-2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 12px;
-
-  h4 {
-    margin: 0;
-    font-size: 1.05rem;
-    color: #ffffff;
-    font-weight: 600;
-  }
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: $primary;
-  box-shadow: 0 0 10px $primary;
-}
-
-.cardActive .dot {
-  background: #3b82f6;
-  box-shadow: 0 0 10px #3b82f6;
-}
-
-.card p {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: $text-muted;
+.statLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $text-secondary;
   margin: 0;
 }
 
 /* =====================================
-   DEEP TECH BACKGROUND & AURORA BLOBS
+   3. SECTIONS COMMON
  ===================================== */
-.background {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+
+  @include mobile {
+    padding: 60px 0;
+  }
+}
+
+.sectionHeader {
+  max-width: 680px;
+  margin-bottom: 56px;
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+/* =====================================
+   BENTO GRID
+ ===================================== */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.bentoItem {
+  height: 100%;
+}
+
+.bentoCard {
+  height: 100%;
+}
+
+.bentoContent {
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: $text-primary;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+.bentoTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $primary;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  background: rgba(59, 130, 246, 0.06);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* =====================================
+   4. FEATURED PRODUCTS
+ ===================================== */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.productWrap {
+  height: 100%;
+}
+
+.productCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.productImgWrap {
+  width: 100%;
+  height: 280px;
+  position: relative;
   overflow: hidden;
-  background: #030712;
+  background: rgba(15, 23, 42, 0.02);
+  border-bottom: 1px solid $border;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+
+  @include mobile {
+    height: 200px;
+  }
 }
 
-.gridLayer {
-  position: absolute;
-  inset: -100% -50% -50% -50%;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 80px 80px;
-  transform: perspective(800px) rotateX(60deg);
-  opacity: 0.8;
-}
-
-.blob {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-.blobPrimary {
-  top: -10%;
-  right: 10%;
-  background: radial-gradient(circle, $primary 0%, transparent 70%);
-}
-
-.blobAccent {
-  bottom: 10%;
-  left: 5%;
-  background: radial-gradient(circle, $primary-2 0%, transparent 70%);
-}
-
-.overlay {
+.imgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(3, 7, 18, 0.3),
-    #030712 90%
-  );
+  background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.03));
+}
+
+.productContent {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include mobile {
+    padding: 24px;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 12px 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: 24px;
+  }
+}
+
+.prodCat {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.prodTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $text-secondary;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid $border;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prodLink {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $primary;
+  width: fit-content;
+
+  svg {
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    color: $primary-2;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+/* =====================================
+   5. PROCESS
+ ===================================== */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.processItem {
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 10px 0;
+  }
+
+  p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+.processIndex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+
+  span {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $primary;
+    width: 32px;
+    height: 32px;
+    background: rgba(59, 130, 246, 0.06);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+}
+
+.processConnector {
+  position: absolute;
+  left: 32px;
+  right: -32px;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.06);
+  z-index: 1;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+/* =====================================
+   6. FINAL CTA
+ ===================================== */
+.ctaSection {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 120px 0;
+
+  @include mobile {
+    padding: 60px 0 80px 0;
+  }
+}
+
+.ctaContainer {
+  background: radial-gradient(circle at 100% 0%, rgba($primary, 0.18) 0%, transparent 60%),
+              radial-gradient(circle at 0% 100%, rgba($primary-2, 0.12) 0%, transparent 60%),
+              #0F172A; /* Deep Slate CTA Capsule */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  padding: 80px 40px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.15);
+
+  @include mobile {
+    padding: 60px 20px;
+  }
+}
+
+.ctaInner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+
+    @include mobile {
+      font-size: 1.8rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 36px 0;
+
+    @include mobile {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn {
+    background: #ffffff;
+    color: #030712;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  .secondaryBtn {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+  }
 }

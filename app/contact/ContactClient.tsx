@@ -69,7 +69,7 @@ export default function ContactClient() {
           <div className={styles.details}>
             {details.map((item, i) => (
               <motion.div
-                key={item.value}
+                key={`${item.value}-${i}`}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}

@@ -28,7 +28,7 @@
 }
 
 .highlightText {
-  color: #ffffff;
+  color: #0F172A;
   font-weight: 600;
 }
 
@@ -55,12 +55,12 @@
   h3 {
     margin: 0 0 16px 0;
     font-size: 1.6rem;
-    color: #ffffff;
+    color: #0F172A;
   }
 
   p {
     line-height: 1.6;
-    color: $text-muted;
+    color: $text-secondary;
     font-size: 0.95rem;
     margin: 0;
   }
@@ -70,7 +70,7 @@
 .domains {
   h3 {
     font-size: 2rem;
-    color: #ffffff;
+    color: #0F172A;
     margin: 0 0 24px 0;
   }
 }
@@ -87,7 +87,7 @@
 
   h4 {
     margin: 0 0 12px 0;
-    color: #ffffff;
+    color: #0F172A;
     font-size: 1.15rem;
     font-weight: 600;
   }
@@ -95,7 +95,7 @@
   p {
     font-size: 0.88rem;
     line-height: 1.5;
-    color: $text-muted;
+    color: $text-secondary;
     margin: 0;
   }
 }
@@ -106,7 +106,7 @@
 
   h3 {
     font-size: 2rem;
-    color: #ffffff;
+    color: #0F172A;
     margin: 0 0 24px 0;
   }
 }
@@ -120,7 +120,7 @@
     position: relative;
     padding-left: 28px;
     font-size: 0.95rem;
-    color: $text-muted;
+    color: $text-secondary;
     line-height: 1.6;
     margin-bottom: 16px;
     
