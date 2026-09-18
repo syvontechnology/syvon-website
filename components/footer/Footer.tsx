@@ -19,10 +19,15 @@ export default function Footer() {
           <div>
             <h4 className={styles.heading}>Domains</h4>
             <ul className={styles.list}>
+              <li>
+                <a href="/services#drone-technology">UAV &amp; Drone Technology</a>
+              </li>
+              <li>
+                <a href="/services#reverse-engineering">Reverse Engineering &amp; R&amp;D</a>
+              </li>
               <li>Artificial Intelligence</li>
               <li>Electric Mobility</li>
-              <li>AgriTech</li>
-              <li>Robotics & Automation</li>
+              <li>AgriTech &amp; Robotics</li>
             </ul>
           </div>
 

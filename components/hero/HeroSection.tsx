@@ -187,6 +187,26 @@ function InteractiveNodeNetwork() {
  ===================================== */
 const capabilities = [
   {
+    title: "Drone Tech & UAV Systems",
+    desc: "End-to-end UAV mechanical design, electronics flight control, sensor AI payload integration, pilot training, and professional flight teams.",
+    icon: (
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    ),
+    tag: "UAV & Aerospace"
+  },
+  {
+    title: "Reverse Engineering & 3D Scanning",
+    desc: "Transforming physical components into high-precision digital CAD models, metrology inspection, and additive manufacturing prototypes.",
+    icon: (
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      </svg>
+    ),
+    tag: "R&D Metrology"
+  },
+  {
     title: "Applied Artificial Intelligence",
     desc: "Deploying production-grade machine learning models, custom RAG pipelines, and automated multi-agent workflows to streamline core operations.",
     icon: (
@@ -217,16 +237,6 @@ const capabilities = [
     tag: "Web"
   },
   {
-    title: "Cross-Platform Mobile Apps",
-    desc: "Crafting native-performing iOS and Android experiences with rich gesture interactions, offline sync support, and beautiful user interfaces.",
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-      </svg>
-    ),
-    tag: "Mobile"
-  },
-  {
     title: "Robotics & Electric Mobility",
     desc: "Designing secure embedded software, telemetry layers, and autonomous logic systems for hardware platforms and mobility infrastructures.",
     icon: (
@@ -235,20 +245,26 @@ const capabilities = [
       </svg>
     ),
     tag: "Hardware"
-  },
-  {
-    title: "Bespoke System Integrations",
-    desc: "Integrating custom ERP/CRM panels, legacy migration paths, and custom backend logic blocks optimized for maximum performance.",
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253" />
-      </svg>
-    ),
-    tag: "Enterprise"
   }
 ];
 
 const featuredProducts = [
+  {
+    title: "UAV & Drone Technologies",
+    category: "Aerospace & Field Operations",
+    desc: "End-to-end drone design, sensor payload integration, diagnostic repairs, certified pilot training, and professional field operator teams.",
+    href: "/services#drone-technology",
+    image: "/images/drone-services/drone-design.jpg",
+    tags: ["Autonomous Flight", "Custom Payload", "Pilot Teams"]
+  },
+  {
+    title: "Reverse Engineering & 3D Scanning",
+    category: "Digital Metrology & Prototyping",
+    desc: "3D laser scanning physical components to CAD reconstruction, digital inspection, and additive manufacturing replacement fabrication.",
+    href: "/services#reverse-engineering",
+    image: "/images/drone-services/reverse-engineering.jpg",
+    tags: ["3D Metrology", "CAD Reconstruction", "Additive 3D"]
+  },
   {
     title: "Syvon EV Scooty",
     category: "Electric Mobility Platform",

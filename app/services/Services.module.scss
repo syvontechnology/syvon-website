@@ -810,52 +810,6 @@
   }
 }
 
-.industryCard {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 120px;
-  box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.02);
-
-  .industryIcon {
-    margin-bottom: 12px;
-    color: rgba($primary, 0.6);
-    transition: all 0.3s ease;
-  }
-
-  span {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: $text-secondary;
-    transition: color 0.3s ease;
-  }
-
-  &:hover {
-    background: rgba($primary, 0.06);
-    border-color: rgba($primary, 0.25);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06);
-
-    .industryIcon {
-      color: $primary;
-      transform: scale(1.15);
-    }
-
-    span {
-      color: #0F172A;
-    }
-  }
-}
-
 /* ==========================================================================
    FAQ SECTION
    ========================================================================== */
@@ -865,7 +819,7 @@
 }
 
 .faqContainer {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -873,20 +827,25 @@
 }
 
 .faqItem {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 4px 20px -10px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
     background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(15, 23, 42, 0.16);
+    border-color: rgba($primary, 0.2);
+    box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.06);
   }
 
   &.faqOpen {
-    background: rgba(255, 255, 255, 0.7);
-    border-color: rgba($primary, 0.25);
+    background: #FFFFFF;
+    border-color: rgba($primary, 0.3);
+    box-shadow: 0 12px 35px -10px rgba($primary, 0.12);
   }
 }
 
@@ -897,23 +856,35 @@
   align-items: center;
   background: transparent;
   border: none;
-  padding: 24px;
+  padding: 24px 28px;
   text-align: left;
   cursor: pointer;
   outline: none;
+  font-family: inherit;
+
+  @include mobile {
+    padding: 18px 20px;
+  }
 
   span {
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: 1.08rem;
+    font-weight: 650;
     color: #0F172A;
-    padding-right: 20px;
+    line-height: 1.4;
+    padding-right: 16px;
+
+    @include mobile {
+      font-size: 0.98rem;
+    }
   }
 }
 
 .faqIcon {
   color: $primary;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 20px;
+  height: 20px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   &.faqIconRotated {
     transform: rotate(180deg);
@@ -922,16 +893,319 @@
 
 .faqAnswer {
   overflow: hidden;
-  transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: height;
 }
 
 .faqAnswerInner {
-  padding: 0 24px 24px 24px;
+  padding: 0 28px 24px 28px;
+
+  @include mobile {
+    padding: 0 20px 20px 20px;
+  }
+
+  p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: $text-secondary;
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+  }
+}
+
+/* ==========================================================================
+   CATEGORY QUICK JUMP BAR
+   ========================================================================== */
+.categoryNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: -30px;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 10;
+  flex-wrap: wrap;
+
+  @include mobile {
+    margin-top: -20px;
+    margin-bottom: 40px;
+    gap: 8px;
+  }
+}
+
+.categoryNavBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   color: $text-secondary;
   font-size: 0.95rem;
-  line-height: 1.6;
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  font-weight: 600;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #FFFFFF;
+    color: $primary;
+    border-color: rgba($primary, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($primary, 0.12);
+  }
+
+  &.activeCategory {
+    background: linear-gradient(135deg, $primary 0%, $primary-2 100%);
+    color: #FFFFFF;
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba($primary, 0.35);
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+}
+
+/* ==========================================================================
+   DRONE & ENGINEERING SHOWCASE SECTIONS
+   ========================================================================== */
+.showcaseSection {
+  padding: $space-xxl 0;
+  position: relative;
+}
+
+.showcaseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+.showcaseCardFull {
+  grid-column: span 2;
+
+  @include tablet {
+    grid-column: span 1;
+  }
+}
+
+.showcaseCard {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba($primary, 0.25);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.09),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+    .cardImg {
+      transform: scale(1.06);
+    }
+  }
+}
+
+.cardImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background-color: #0F172A;
+
+  @include mobile {
+    height: 200px;
+  }
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.65) 100%);
+  pointer-events: none;
+}
+
+.cardCategoryBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.75);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cardBody {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include mobile {
+    padding: 24px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: 24px;
+  }
+}
+
+.listHeader {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $primary;
+  margin-bottom: 12px;
+}
+
+.featureListGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin-top: auto;
+
+  @include small-mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 550;
+  color: $text-secondary;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $accent;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+}
+
+/* ==========================================================================
+   R&D PROCESS FLOW BAR (Concept -> Design -> Simulation -> Prototype -> Testing -> Validation -> Deployment)
+   ========================================================================== */
+.rdProcessContainer {
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 16px;
+}
+
+.rdProcessHeader {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $primary;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rdProcessFlow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  @include mobile {
+    gap: 10px;
+  }
+}
+
+.rdProcessStep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rdStepPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba($primary, 0.08);
+    border-color: rgba($primary, 0.25);
+    color: $primary;
+    transform: translateY(-2px);
+  }
+}
+
+.rdStepArrow {
+  color: rgba(15, 23, 42, 0.25);
+  font-size: 1rem;
+  font-weight: 700;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1025,3 +1299,4 @@
     margin: 0 auto;
   }
 }
+
