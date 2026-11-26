@@ -20,7 +20,7 @@ body {
   color: $text-primary;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {
@@ -119,11 +119,6 @@ p {
   h2 {
     font-size: 26px;
   }
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .app-layout {

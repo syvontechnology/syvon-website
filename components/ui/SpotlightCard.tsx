@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import styles from "./SpotlightCard.module.scss";
 
 interface SpotlightCardProps {
@@ -16,43 +16,39 @@ export default function SpotlightCard({
   onClick,
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
     const card = cardRef.current;
+    if (!card) return;
     const rect = card.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--my", `${e.clientY - rect.top}px`);
+  };
+
+  const handleMouseEnter = () => {
+    cardRef.current?.style.setProperty("--spot-opacity", "1");
+  };
+
+  const handleMouseLeave = () => {
+    cardRef.current?.style.setProperty("--spot-opacity", "0");
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setOpacity(1)}
-      onMouseLeave={() => setOpacity(0)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={onClick}
       className={`${styles.card} ${className}`}
-      style={{ cursor: onClick ? "pointer" : "default" }}
+      style={
+        {
+          cursor: onClick ? "pointer" : "default",
+          "--glow-color": glowColor,
+        } as React.CSSProperties
+      }
     >
-      <div
-        className={styles.spotlight}
-        style={{
-          opacity,
-          background: `radial-gradient(350px circle at ${position.x}px ${position.y}px, ${glowColor}, transparent 80%)`,
-        }}
-      />
-      <div
-        className={styles.borderSpotlight}
-        style={{
-          opacity,
-          background: `radial-gradient(200px circle at ${position.x}px ${position.y}px, rgba(255, 255, 255, 0.2), transparent 80%)`,
-        }}
-      />
+      <div className={styles.spotlight} aria-hidden="true" />
       <div className={styles.inner}>{children}</div>
     </div>
   );

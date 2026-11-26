@@ -136,16 +136,12 @@ function InteractiveNodeNetwork() {
               <motion.circle
                 cx={node.x}
                 cy={node.y}
-                r={isHovered ? 16 : 10}
+                r={isHovered ? 16 : 11}
                 fill="none"
                 stroke={node.color}
                 strokeWidth={1.5}
-                animate={{ scale: isHovered ? 1.25 : [1, 1.15, 1] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+                animate={{ scale: isHovered ? 1.2 : 1 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
               />
               <circle
                 cx={node.x}
@@ -335,42 +331,16 @@ const processSteps = [
 export default function HeroSection() {
   return (
     <div className={styles.wrapper}>
-      {/* Background Layers */}
-      <div className={styles.background} aria-hidden="true">
-        <div className={styles.gridLayer} />
-        
-        {/* Subtle blur aura blobs */}
-        <motion.div
-          animate={{
-            x: [0, 30, -15, 0],
-            y: [0, -20, 10, 0],
-            scale: [1, 1.1, 0.95, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className={`${styles.blob} ${styles.blobPrimary}`}
-        />
-        <motion.div
-          animate={{
-            x: [0, -20, 30, 0],
-            y: [0, 30, -20, 0],
-            scale: [1, 0.95, 1.05, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className={`${styles.blob} ${styles.blobAccent}`}
-        />
-        <div className={styles.overlay} />
-      </div>
-
       {/* 1. HERO BANNER */}
       <section className={styles.heroSection}>
+        {/* Hero-scoped background layers */}
+        <div className={styles.background} aria-hidden="true">
+          <div className={styles.gridLayer} />
+          <div className={`${styles.blob} ${styles.blobPrimary}`} />
+          <div className={`${styles.blob} ${styles.blobAccent}`} />
+          <div className={styles.overlay} />
+        </div>
+
         <Container>
           <div className={styles.heroGrid}>
             {/* LEFT COLUMN - TEXT CONTENT */}
@@ -385,9 +355,9 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 25, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className={styles.heroTitle}
               >
                 Powering industry with hybrid solar, smart lighting, and clean-tech engineering.
@@ -516,7 +486,7 @@ export default function HeroSection() {
               <div key={i} className={styles.productWrap}>
                 <SpotlightCard className={styles.productCard}>
                   <div className={styles.productImgWrap}>
-                    <img src={prod.image} alt={prod.title} loading="lazy" />
+                    <img src={prod.image} alt={prod.title} decoding="async" />
                     <div className={styles.imgOverlay} />
                   </div>
                   <div className={styles.productContent}>

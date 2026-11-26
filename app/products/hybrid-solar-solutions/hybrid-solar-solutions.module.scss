@@ -310,8 +310,8 @@ $solar-amber: #F59E0B;
   text-align: center;
   padding: $space-xxl 24px;
   background: radial-gradient(circle at 100% 0%, rgba($solar-emerald, 0.2) 0%, transparent 55%),
-              radial-gradient(circle at 0% 100%, rgba($solar-amber, 0.14) 0%, transparent 55%),
-              #0F172A;
+    radial-gradient(circle at 0% 100%, rgba($solar-amber, 0.14) 0%, transparent 55%),
+    #0F172A;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   margin-bottom: $space-xxl;
