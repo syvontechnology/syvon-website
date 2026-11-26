@@ -17,8 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Syvon Technology",
-  description: "Engineering AI, EV, and AgriTech solutions",
+  title: "Syvon Technology | Renewable Energy, Hybrid Solar & Smart Infrastructure",
+  description:
+    "Engineering industrial rooftop hybrid solar solutions (Waaree Energies & Deye), custom smart streetlight poles, solar highway lighting, electric mobility, UAV systems, and applied AI.",
 };
 
 export default function RootLayout({

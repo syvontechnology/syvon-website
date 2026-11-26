@@ -129,6 +129,83 @@ function TiltCard({ children, className = "", glowColor = "rgba(99, 102, 241, 0.
 }
 
 /* ==========================================================================
+   RENEWABLE ENERGY & SMART LIGHTING DATA
+   ========================================================================== */
+const solarServices = [
+  {
+    id: "rooftop-hybrid-solar",
+    badge: "☀️ Waaree Energies PV",
+    title: "Industrial Rooftop Hybrid Solar Arrays",
+    image: "/images/renewable/industrial-rooftop-solar.jpg",
+    description:
+      "Turnkey commercial and industrial rooftop solar plants engineered for factories, warehouses, cold storages, and manufacturing units—built with Waaree Energies Tier-1 Mono PERC & N-Type TOPCon bifacial PV modules.",
+    servicesTitle: "Solar EPC & Engineering:",
+    features: [
+      "25 kW to 5 MW+ Industrial Rooftop Plants",
+      "Waaree Energies Tier-1 High-Yield Modules",
+      "Wind-Load Certified Structural Mounting",
+      "Net-Metering & Zero-Export Compliance",
+      "DC SPD, Arc-Fault & Lightning Protection",
+      "25–30 Year Linear Performance Warranty",
+    ],
+  },
+  {
+    id: "deye-hybrid-storage",
+    badge: "🔋 Deye Hybrid & BESS",
+    title: "Deye Hybrid Inverters & LiFePO4 Energy Storage",
+    image: "/images/renewable/hybrid-solar-inverter-bess.jpg",
+    description:
+      "Powered by Deye three-phase high-voltage & low-voltage hybrid inverters paired with modular LiFePO4 battery banks for <4ms UPS-grade backup, peak shaving, and seamless diesel generator (DG) synchronization.",
+    servicesTitle: "Hybrid Power Capabilities:",
+    features: [
+      "Deye 3-Phase Hybrid Inverter Integration",
+      "< 4ms Seamless Grid/Battery Switchover",
+      "Intelligent Peak Shaving & Tariff Control",
+      "Automated Diesel Generator (DG) Sync",
+      "Modular High-Cycle LiFePO4 Battery Racks",
+      "24/7 Cloud SCADA & String Telemetry",
+    ],
+  },
+];
+
+const smartLightingServices = [
+  {
+    id: "smart-led-sidewalk-poles",
+    badge: "💡 LED Display + Sidewalk",
+    title: "Custom Smart Streetlight Poles (LED Display & Sidewalk Lights)",
+    image: "/images/renewable/smart-streetlight-led-sidewalk.jpg",
+    description:
+      "Custom-fabricated architectural smart poles integrating high-brightness P4/P5 IP65 outdoor LED displays, primary overhead roadway luminaires, and dedicated lower sidewalk pedestrian lights.",
+    servicesTitle: "Custom Pole Features:",
+    features: [
+      "Integrated Outdoor Vertical LED Display",
+      "Dedicated Lower Sidewalk Pedestrian Arm",
+      "Cloud 4G / LoRaWAN Signage CMS Control",
+      "Hot-Dip Galvanized Custom Pole Heights (6m–12m)",
+      "Optional CCTV, AQI Sensor & EV Socket Mounts",
+      "Solar-Hybrid or Grid-Tied Power Architecture",
+    ],
+  },
+  {
+    id: "solar-highway-lights",
+    badge: "🛣️ Highway Solar",
+    title: "Autonomous Solar Highway Lights",
+    image: "/images/renewable/solar-highway-lights.jpg",
+    description:
+      "Off-grid, high-lumen solar highway lighting systems engineered for expressways, national & state highways, toll plazas, and industrial corridors with zero cable trenching.",
+    servicesTitle: "Highway Lighting Specs:",
+    features: [
+      "160+ lm/W High-Efficiency Highway Optics",
+      "Top-Mounted Monocrystalline Solar Arrays",
+      "In-Pole / Weatherproof LiFePO4 Battery Packs",
+      "Smart MPPT Controllers with 3-Day Autonomy",
+      "Radar / PIR Adaptive Motion Dimming",
+      "Wind-Tunnel & Corrosion-Resistant Hardware",
+    ],
+  },
+];
+
+/* ==========================================================================
    SOFTWARE SERVICES DATA
    ========================================================================== */
 const softwareServices = [
@@ -372,6 +449,14 @@ const processTimelineSteps = [
    ========================================================================== */
 const technologies = [
   {
+    category: "Renewable Energy & Storage",
+    items: ["Waaree TOPCon PV", "Deye Hybrid Inverters", "LiFePO4 BESS", "MPPT Controllers", "DG Auto-Sync", "SCADA Telemetry"]
+  },
+  {
+    category: "Smart Lighting & Poles",
+    items: ["IP65 LED Displays", "Sidewalk Optics", "160+ lm/W Luminaires", "LoRaWAN Dimming", "PIR Motion Sensors", "Custom CAD Poles"]
+  },
+  {
     category: "Software & Web",
     items: ["React", "Next.js", "TypeScript", "Node.js", "Python", "FastAPI"]
   },
@@ -384,16 +469,8 @@ const technologies = [
     items: ["CAD Modeling", "Laser 3D Scanning", "Additive Manufacturing", "FDM/SLA 3D Printing", "Digital Metrology"]
   },
   {
-    category: "Database & Cloud",
-    items: ["PostgreSQL", "MongoDB", "Firebase", "AWS", "Docker", "Vercel"]
-  },
-  {
-    category: "AI & Robotics",
-    items: ["OpenAI", "Computer Vision", "LangChain", "RAG Systems", "Autonomous Navigation", "Multi-Agent AI"]
-  },
-  {
-    category: "Hardware & IoT",
-    items: ["Embedded C/C++", "STM32", "Raspberry Pi", "Telemetry Sensors", "Battery Management (BMS)"]
+    category: "Hardware & AI IoT",
+    items: ["Embedded C/C++", "STM32", "Energy AI Analytics", "BMS Systems", "Cloud Dashboards", "Computer Vision"]
   }
 ];
 
@@ -401,6 +478,46 @@ const technologies = [
    INDUSTRIES DATA
    ========================================================================== */
 const industries = [
+  {
+    name: "Industrial Manufacturing",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    )
+  },
+  {
+    name: "Renewable Energy",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+    )
+  },
+  {
+    name: "Smart Cities & Highways",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    )
+  },
+  {
+    name: "Warehousing & Cold Storage",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
+        <line x1="9" y1="22" x2="9" y2="16" />
+        <line x1="15" y1="22" x2="15" y2="16" />
+        <line x1="9" y1="16" x2="15" y2="16" />
+        <path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 4h2v2H8zm6 0h2v2h-2z" />
+      </svg>
+    )
+  },
   {
     name: "UAV & Aerospace",
     icon: (
@@ -419,34 +536,15 @@ const industries = [
     )
   },
   {
-    name: "Manufacturing",
+    name: "Electric Mobility",
     icon: (
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-        <line x1="12" y1="22.08" x2="12" y2="12" />
+        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     )
   },
   {
-    name: "Healthcare",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    )
-  },
-  {
-    name: "Finance",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="5" width="20" height="14" rx="2" />
-        <line x1="2" y1="10" x2="22" y2="10" />
-      </svg>
-    )
-  },
-  {
-    name: "Logistics",
+    name: "Logistics & SEZs",
     icon: (
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="3" width="15" height="13" />
@@ -457,16 +555,7 @@ const industries = [
     )
   },
   {
-    name: "Infrastructure",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    )
-  },
-  {
-    name: "Education & R&D",
+    name: "Education & Campuses",
     icon: (
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -475,25 +564,13 @@ const industries = [
     )
   },
   {
-    name: "Startups & Innovators",
+    name: "Enterprise & R&D",
     icon: (
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5" />
         <path d="M12 2C6.5 2 2 6.5 2 12c0 2.1.65 4.05 1.75 5.66L17.66 3.75C16.05 2.65 14.1 2 12 2z" />
         <path d="M22 2s-3.5 1-4.5 2.5l7 7C23 10.5 24 7 24 7s-1-4.5-2-5z" />
         <path d="M19.5 9.5L14.5 4.5" />
-      </svg>
-    )
-  },
-  {
-    name: "Enterprise",
-    icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
-        <line x1="9" y1="22" x2="9" y2="16" />
-        <line x1="15" y1="22" x2="15" y2="16" />
-        <line x1="9" y1="16" x2="15" y2="16" />
-        <path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 4h2v2H8zm6 0h2v2h-2z" />
       </svg>
     )
   }
@@ -503,6 +580,18 @@ const industries = [
    FAQ DATA
    ========================================================================== */
 const faqs = [
+  {
+    question: "Why does Syvon Technology partner with Waaree Energies and Deye for industrial solar?",
+    answer: "Industrial rooftops demand bankable Tier-1 reliability. Waaree Energies provides high-efficiency N-Type TOPCon and Mono PERC solar PV modules with 25–30 year linear power warranties, while Deye delivers three-phase hybrid inverters with <4ms UPS switchover, seamless diesel generator (DG) synchronization, and modular LiFePO4 battery compatibility."
+  },
+  {
+    question: "What customizations are available on your Smart Streetlight Poles?",
+    answer: "Our smart streetlight poles are custom-engineered from 6m to 12m in height and can integrate high-brightness IP65 vertical LED displays (with cloud CMS), primary overhead roadway lights, dedicated lower sidewalk pedestrian lights, autonomous solar highway panels with LiFePO4 batteries, and optional CCTV, AQI, or EV charging mounts."
+  },
+  {
+    question: "Do your Solar Highway Lights work without grid power?",
+    answer: "Yes. Our autonomous solar highway lights operate completely off-grid with top-mounted monocrystalline PV panels, smart MPPT charge controllers, and in-pole LiFePO4 batteries engineered for 3+ days of rainy-weather autonomy with adaptive dusk-to-dawn motion dimming."
+  },
   {
     question: "Do you provide drone pilot training and certified field pilot teams?",
     answer: "Yes, Syvon Technology Pvt. Ltd. provides practical, application-oriented drone pilot training covering basic and advanced flight control, industrial operations, agricultural mapping, mission planning, and safety maintenance. We also deploy trained technical pilot teams for project-based UAV field operations, surveys, and site monitoring."
@@ -514,18 +603,6 @@ const faqs = [
   {
     question: "How does your 3D Scanning and Reverse Engineering process work?",
     answer: "Our reverse-engineering workflow transforms physical engineering components into fully detailed 3D CAD models via high-precision 3D scanning. We perform dimensional inspection, reconstruct CAD geometries, produce engineering drawings, and manufacture replacement components using advanced additive manufacturing (3D printing)."
-  },
-  {
-    question: "How long does a custom software or hardware R&D project take?",
-    answer: "Project timelines vary depending on complexity and scope. Typically, a custom landing page or website takes 3 to 5 weeks, while full-scale web applications, custom SaaS platforms, or deep UAV R&D & prototype manufacturing take anywhere from 6 to 16 weeks. We map out precise milestones during project blueprinting."
-  },
-  {
-    question: "What technologies do you use for software development?",
-    answer: "We leverage leading-edge stacks optimized for speed and reliability. In the frontend, we use React, Next.js, and TypeScript. For backends, we build using Node.js, Express, Python, and FastAPI. Databases consist of PostgreSQL or MongoDB, deployed to cloud environments via AWS, Docker, and Vercel."
-  },
-  {
-    question: "Do you provide post-launch support and flight maintenance?",
-    answer: "Absolutely. We offer flexible post-launch maintenance packages for both software platforms and UAV hardware. This includes continuous software monitoring, security audits, flight telemetry calibration, and physical drone maintenance as your operations expand."
   }
 ];
 
@@ -615,8 +692,8 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              Software, Drone Tech &amp; Hardware R&amp;D
-              <span className={styles.gradientText}>Engineered For Growth</span>
+              Renewable Energy, Smart Lighting &amp; Deep-Tech R&amp;D
+              <span className={styles.gradientText}>Engineered For Sustainability</span>
             </motion.h1>
 
             <motion.p
@@ -624,7 +701,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
-              From custom software platforms and web applications to UAV drone design, pilot training, 3D reverse engineering, and additive manufacturing—Syvon Technology delivers end-to-end engineering excellence.
+              From industrial rooftop hybrid solar plants with Waaree Energies &amp; Deye and custom smart streetlight poles with LED displays &amp; solar highway lights, to UAV drones, 3D reverse engineering, and applied AI software.
             </motion.p>
 
             <motion.div
@@ -634,14 +711,14 @@ export default function ServicesPage() {
               className={styles.actions}
             >
               <Link href="/contact" className={styles.primaryBtn}>
-                <span>Let&apos;s Build Together</span>
+                <span>Request Solar &amp; Engineering Audit</span>
                 <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Link>
 
-              <a href="#drone-technology" className={styles.secondaryBtn}>
-                Explore Drone &amp; R&amp;D
+              <a href="#renewable-solar" className={styles.secondaryBtn}>
+                Explore Solar &amp; Smart Poles
               </a>
             </motion.div>
           </div>
@@ -651,6 +728,12 @@ export default function ServicesPage() {
       {/* QUICK CATEGORY NAV JUMP BAR */}
       <Container>
         <div className={styles.categoryNav}>
+          <a href="#renewable-solar" className={styles.categoryNavBtn}>
+            ☀️ Rooftop Hybrid Solar
+          </a>
+          <a href="#smart-lighting" className={styles.categoryNavBtn}>
+            💡 Smart Poles &amp; Highway Solar
+          </a>
           <a href="#software-services" className={styles.categoryNavBtn}>
             💻 Software &amp; AI
           </a>
@@ -662,6 +745,136 @@ export default function ServicesPage() {
           </a>
         </div>
       </Container>
+
+      {/* 1B. INDUSTRIAL ROOFTOP HYBRID SOLAR SOLUTIONS */}
+      <section id="renewable-solar" className={styles.showcaseSection}>
+        <Container>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>Renewable Energy EPC</span>
+            <h2>Rooftop Hybrid Solar Solutions for Industry</h2>
+            <p>
+              High-yield commercial &amp; industrial rooftop solar plants engineered with{" "}
+              <strong>Waaree Energies</strong> PV modules and <strong>Deye</strong> three-phase hybrid inverters for reliable, uninterrupted clean power.
+            </p>
+          </div>
+
+          <div className={styles.showcaseGrid}>
+            {solarServices.map((item, index) => (
+              <motion.div
+                key={item.id}
+                id={item.id}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+              >
+                <div className={styles.showcaseCard}>
+                  <div className={styles.cardImgWrapper}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className={styles.cardImg}
+                    />
+                    <div className={styles.cardImgOverlay} />
+                    <div className={styles.cardCategoryBadge}>{item.badge}</div>
+                  </div>
+
+                  <div className={styles.cardBody}>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+
+                    <div className={styles.listHeader}>{item.servicesTitle}</div>
+                    <div className={styles.featureListGrid}>
+                      {item.features.map((feat) => (
+                        <div key={feat} className={styles.featureItem}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className={styles.partnerStrip}>
+            <div className={styles.partnerStripCard}>
+              <span>Official PV Module Partner</span>
+              <h4>Waaree Energies</h4>
+              <p>
+                Tier-1 N-Type TOPCon &amp; Mono PERC bifacial solar modules engineered for peak industrial rooftop performance and 25–30 year linear yield reliability.
+              </p>
+            </div>
+            <div className={styles.partnerStripCard}>
+              <span>Official Hybrid Inverter Partner</span>
+              <h4>Deye</h4>
+              <p>
+                Industrial three-phase hybrid inverters enabling seamless &lt;4ms UPS switchover, peak-shaving, DG synchronization, and modular LiFePO4 battery storage.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 1C. CUSTOM SMART STREETLIGHT POLES & SOLAR HIGHWAY LIGHTS */}
+      <section id="smart-lighting" className={styles.showcaseSection}>
+        <Container>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>Smart Solar Infrastructure</span>
+            <h2>Custom Smart Streetlight Poles &amp; Solar Highway Lights</h2>
+            <p>
+              Multi-functional smart streetlight poles featuring outdoor LED displays and dedicated sidewalk pedestrian lights, alongside autonomous solar highway lighting systems.
+            </p>
+          </div>
+
+          <div className={styles.showcaseGrid}>
+            {smartLightingServices.map((item, index) => (
+              <motion.div
+                key={item.id}
+                id={item.id}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+              >
+                <div className={styles.showcaseCard}>
+                  <div className={styles.cardImgWrapper}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className={styles.cardImg}
+                    />
+                    <div className={styles.cardImgOverlay} />
+                    <div className={styles.cardCategoryBadge}>{item.badge}</div>
+                  </div>
+
+                  <div className={styles.cardBody}>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+
+                    <div className={styles.listHeader}>{item.servicesTitle}</div>
+                    <div className={styles.featureListGrid}>
+                      {item.features.map((feat) => (
+                        <div key={feat} className={styles.featureItem}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* 2. SOFTWARE & AI SERVICES Grid */}
       <section id="software-services" className={styles.bentoSection}>
@@ -1063,7 +1276,7 @@ export default function ServicesPage() {
           <div className={styles.sectionHeader}>
             <span className={styles.sectionBadge}>Got Questions?</span>
             <h2>Frequently Asked Questions</h2>
-            <p>Find answers to common questions about our working processes, drone technology, reverse engineering, and pricing.</p>
+            <p>Find answers to common questions about industrial rooftop hybrid solar, Waaree &amp; Deye systems, smart streetlight poles, drone tech, and engineering R&amp;D.</p>
           </div>
 
           <div className={styles.faqContainer}>
@@ -1124,7 +1337,7 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                Let&apos;s Build Something Extraordinary
+                Power Your Industry with Clean Energy
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -1132,7 +1345,7 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Whether you&apos;re launching a startup, modernizing your business, or building the next big SaaS platform, we&apos;re ready to turn your vision into reality.
+                Whether you&apos;re deploying an industrial Waaree + Deye rooftop hybrid solar plant, custom smart streetlight poles, or custom UAV and AI engineering systems, we&apos;re ready to deliver.
               </motion.p>
 
               <motion.div

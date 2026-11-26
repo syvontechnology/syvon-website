@@ -6,29 +6,29 @@ import { motion } from "framer-motion";
 
 const domains = [
   {
-    title: "Artificial Intelligence",
-    desc: "Engineering applied AI systems that enhance decision-making, automate workflows, and operate reliably at scale.",
-    glow: "rgba(99, 102, 241, 0.08)",
+    title: "Rooftop Hybrid Solar for Industry",
+    desc: "Delivering high-yield commercial & industrial hybrid solar plants powered by Waaree Energies PV modules, Deye hybrid inverters, and modular LiFePO4 storage.",
+    glow: "rgba(16, 185, 129, 0.1)",
+  },
+  {
+    title: "Smart Streetlight & Solar Highway Systems",
+    desc: "Custom-engineered smart streetlight poles featuring outdoor LED displays, dedicated sidewalk illumination, and autonomous solar highway lights.",
+    glow: "rgba(245, 158, 11, 0.1)",
   },
   {
     title: "Electric Mobility",
-    desc: "Developing intelligent software and analytics layers for EV platforms, energy optimization, and mobility infrastructure.",
-    glow: "rgba(139, 92, 246, 0.08)",
-  },
-  {
-    title: "AgriTech",
-    desc: "Creating data-driven agricultural solutions focused on sustainability, productivity, and real-world usability.",
-    glow: "rgba(16, 185, 129, 0.08)",
-  },
-  {
-    title: "Robotics & Automation",
-    desc: "Designing autonomous and semi-autonomous systems built for precision, reliability, and field deployment.",
-    glow: "rgba(239, 68, 68, 0.06)",
-  },
-  {
-    title: "Software Engineering",
-    desc: "Building secure, scalable, cloud-native platforms with clean architectures and long-term maintainability.",
+    desc: "Developing smart EV platforms, battery telemetry, and clean urban mobility solutions led by the Syvon EV Scooty.",
     glow: "rgba(59, 130, 246, 0.08)",
+  },
+  {
+    title: "UAV, Drone & Hardware R&D",
+    desc: "End-to-end UAV design, diagnostic repair, pilot training, 3D laser reverse engineering, and additive manufacturing prototypes.",
+    glow: "rgba(99, 102, 241, 0.08)",
+  },
+  {
+    title: "Applied AI & Energy Software",
+    desc: "Building IoT telemetry dashboards, smart-grid analytics, and scalable cloud-native software systems for modern enterprises.",
+    glow: "rgba(139, 92, 246, 0.08)",
   },
 ];
 
@@ -59,32 +59,33 @@ export default function AboutUsPage() {
         {/* Intro */}
         <motion.section variants={itemVariants} className={styles.intro}>
           <p>
-            <strong className={styles.highlightText}>Syvon Technology</strong> is a high-end product engineering agency 
-            focused on building production-ready digital platforms and intelligent AI systems.
+            <strong className={styles.highlightText}>Syvon Technology</strong> is a renewable-energy-first
+            engineering and clean-tech company accelerating industrial decarbonization, smart solar
+            infrastructure, and intelligent mobility.
           </p>
 
           <p>
-            We operate at the intersection of technical excellence and strategic business growth. 
-            We do not build prototypes that gather dust—we build resilient, production-ready software architectures 
-            designed to scale with your business and deliver measurable outcomes.
+            From turnkey industrial rooftop hybrid solar plants built with <strong>Waaree Energies</strong> and{" "}
+            <strong>Deye</strong> to custom smart streetlight poles with LED displays, sidewalk lighting, and
+            solar highway systems, we combine bankable energy hardware with UAV, R&amp;D, and AI software engineering.
           </p>
         </motion.section>
 
         {/* Mission / Vision Cards */}
         <motion.section variants={itemVariants} className={styles.mv}>
-          <SpotlightCard className={styles.mvCard} glowColor="rgba(59, 130, 246, 0.08)">
+          <SpotlightCard className={styles.mvCard} glowColor="rgba(16, 185, 129, 0.1)">
             <h3>Our Mission</h3>
             <p>
-              To engineer intelligent software platforms that solve complex business challenges with 
-              uncompromising speed, clean architecture, and long-term durability.
+              To accelerate the transition to clean, resilient energy by engineering bankable industrial
+              hybrid solar systems, smart solar public lighting, and intelligent clean-tech platforms.
             </p>
           </SpotlightCard>
 
-          <SpotlightCard className={styles.mvCard} glowColor="rgba(99, 102, 241, 0.08)">
+          <SpotlightCard className={styles.mvCard} glowColor="rgba(245, 158, 11, 0.1)">
             <h3>Our Vision</h3>
             <p>
-              To be the trusted technology partner for global startups and enterprises, recognized 
-              for craftsmanship, velocity, and systems that scale seamlessly.
+              To be India&apos;s trusted renewable energy and smart infrastructure engineering partner—combining
+              Tier-1 solar technology, custom fabrication, and applied software for sustainable industrial growth.
             </p>
           </SpotlightCard>
         </motion.section>

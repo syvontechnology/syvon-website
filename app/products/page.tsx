@@ -7,6 +7,22 @@ import { motion } from "framer-motion";
 
 const products = [
   {
+    title: "Rooftop Hybrid Solar Solutions",
+    description:
+      "Turnkey industrial rooftop hybrid solar plants engineered in partnership with Waaree Energies PV modules and Deye three-phase hybrid inverters with LiFePO4 storage.",
+    image: "/images/renewable/industrial-rooftop-solar.jpg",
+    href: "/products/hybrid-solar-solutions",
+    glow: "rgba(16, 185, 129, 0.1)",
+  },
+  {
+    title: "Custom Smart Streetlight Poles",
+    description:
+      "Architectural smart solar poles with integrated outdoor LED displays and sidewalk pedestrian lighting, alongside autonomous high-lumen solar highway lights.",
+    image: "/images/renewable/smart-streetlight-led-sidewalk.jpg",
+    href: "/products/smart-streetlight-poles",
+    glow: "rgba(245, 158, 11, 0.1)",
+  },
+  {
     title: "Syvon EV Scooty",
     description:
       "A heavy-duty, smart electric mobility platform designed for urban transit operations. Features digital telemetry displays, fast charging, and customizable safety profiles.",

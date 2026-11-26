@@ -123,7 +123,7 @@
 }
 
 .gradientText {
-  background: linear-gradient(135deg, $primary 0%, $primary-2 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #10B981 0%, $primary 50%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: block;
@@ -1205,6 +1205,56 @@
 
   @include mobile {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   RENEWABLE PARTNER CALLOUT STRIP
+   ========================================================================== */
+.partnerStrip {
+  margin-top: 36px;
+  padding: 28px 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.07) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding: 22px 20px;
+  }
+}
+
+.partnerStripCard {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 22px 24px;
+
+  span {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #059669;
+    margin-bottom: 6px;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin: 0 0 6px 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: $text-secondary;
+    margin: 0;
   }
 }
 

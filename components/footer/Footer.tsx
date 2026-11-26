@@ -10,8 +10,9 @@ export default function Footer() {
           <div className={styles.brand}>
             <h3 className={styles.logo}>Syvon Technology</h3>
             <p className={styles.description}>
-              Engineering intelligent, scalable, and sustainable technology
-              solutions across AI, Electric Mobility, and AgriTech.
+              Engineering clean, resilient renewable energy systems, industrial
+              hybrid solar plants, smart solar lighting, electric mobility, UAV
+              systems, and applied AI.
             </p>
           </div>
 
@@ -20,14 +21,20 @@ export default function Footer() {
             <h4 className={styles.heading}>Domains</h4>
             <ul className={styles.list}>
               <li>
+                <a href="/products/hybrid-solar-solutions">Rooftop Hybrid Solar</a>
+              </li>
+              <li>
+                <a href="/products/smart-streetlight-poles">Smart Streetlights &amp; Solar Highways</a>
+              </li>
+              <li>
+                <a href="/products/syvon-ev-scooty">Electric Mobility</a>
+              </li>
+              <li>
                 <a href="/services#drone-technology">UAV &amp; Drone Technology</a>
               </li>
               <li>
                 <a href="/services#reverse-engineering">Reverse Engineering &amp; R&amp;D</a>
               </li>
-              <li>Artificial Intelligence</li>
-              <li>Electric Mobility</li>
-              <li>AgriTech &amp; Robotics</li>
             </ul>
           </div>
 

@@ -58,22 +58,22 @@ function InteractiveNodeNetwork() {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   const nodes = [
-    { id: "ai", label: "AI & ML", x: 120, y: 80, color: "#3B82F6" },
-    { id: "iot", label: "Embedded IoT", x: 280, y: 110, color: "#6366F1" },
-    { id: "ev", label: "Smart EV Mobility", x: 80, y: 220, color: "#10B981" },
-    { id: "sec", label: "Faraday Security", x: 260, y: 240, color: "#F59E0B" },
-    { id: "hw", label: "Custom Hardware", x: 180, y: 320, color: "#EF4444" },
-    { id: "rd", label: "Product R&D", x: 340, y: 340, color: "#EC4899" },
+    { id: "solar", label: "Hybrid Solar", x: 120, y: 80, color: "#10B981" },
+    { id: "poles", label: "Smart Poles", x: 280, y: 110, color: "#F59E0B" },
+    { id: "ev", label: "EV Mobility", x: 80, y: 220, color: "#059669" },
+    { id: "highway", label: "Highway Solar", x: 260, y: 240, color: "#3B82F6" },
+    { id: "uav", label: "UAV & Drones", x: 180, y: 320, color: "#6366F1" },
+    { id: "ai", label: "Energy AI & IoT", x: 340, y: 340, color: "#EC4899" },
   ];
 
   const connections = [
-    { from: "ai", to: "iot" },
-    { from: "ai", to: "ev" },
-    { from: "iot", to: "sec" },
-    { from: "ev", to: "hw" },
-    { from: "sec", to: "hw" },
-    { from: "hw", to: "rd" },
-    { from: "rd", to: "iot" },
+    { from: "solar", to: "poles" },
+    { from: "solar", to: "ev" },
+    { from: "poles", to: "highway" },
+    { from: "ev", to: "uav" },
+    { from: "highway", to: "uav" },
+    { from: "uav", to: "ai" },
+    { from: "ai", to: "poles" },
   ];
 
   return (
@@ -187,6 +187,37 @@ function InteractiveNodeNetwork() {
  ===================================== */
 const capabilities = [
   {
+    title: "Rooftop Hybrid Solar for Industry",
+    desc: "Turnkey commercial & industrial rooftop hybrid solar plants engineered in partnership with Waaree Energies PV modules and Deye hybrid inverters with LiFePO4 storage.",
+    icon: (
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="4" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41" />
+      </svg>
+    ),
+    tag: "Renewable Energy"
+  },
+  {
+    title: "Custom Smart Streetlight Poles",
+    desc: "Architectural solar smart poles featuring integrated outdoor LED displays, dedicated sidewalk pedestrian lighting, and autonomous solar highway lights.",
+    icon: (
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 18h6m-5 4h4M12 2a7 7 0 0 0-4 12.74V16a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1.26A7 7 0 0 0 12 2Z" />
+      </svg>
+    ),
+    tag: "Solar Lighting"
+  },
+  {
+    title: "Smart Electric Mobility",
+    desc: "Designing clean urban electric mobility platforms, battery telemetry layers, and intelligent safety systems led by the Syvon EV Scooty.",
+    icon: (
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    tag: "EV Mobility"
+  },
+  {
     title: "Drone Tech & UAV Systems",
     desc: "End-to-end UAV mechanical design, electronics flight control, sensor AI payload integration, pilot training, and professional flight teams.",
     icon: (
@@ -207,48 +238,50 @@ const capabilities = [
     tag: "R&D Metrology"
   },
   {
-    title: "Applied Artificial Intelligence",
-    desc: "Deploying production-grade machine learning models, custom RAG pipelines, and automated multi-agent workflows to streamline core operations.",
+    title: "Applied AI & Energy IoT Software",
+    desc: "Deploying real-time solar SCADA dashboards, smart pole CMS, machine learning models, and scalable cloud platforms.",
     icon: (
       <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 21m0 0l-.813-5.096L9 21zm0 0h4.906M12 3v13.5M3 12h18M6.375 6.375L17.625 17.625M6.375 17.625L17.625 6.375" />
       </svg>
     ),
     tag: "Intelligence"
-  },
-  {
-    title: "SaaS & Cloud Platforms",
-    desc: "Building multi-tenant architectures, secure billing pipelines, and real-time dashboards designed for rapid enterprise scaling.",
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-      </svg>
-    ),
-    tag: "Cloud"
-  },
-  {
-    title: "High-Performance Web Apps",
-    desc: "Developing secure, low-latency applications with clean React/Next.js codebases, optimized database structures, and seamless API systems.",
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
-      </svg>
-    ),
-    tag: "Web"
-  },
-  {
-    title: "Robotics & Electric Mobility",
-    desc: "Designing secure embedded software, telemetry layers, and autonomous logic systems for hardware platforms and mobility infrastructures.",
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3" />
-      </svg>
-    ),
-    tag: "Hardware"
   }
 ];
 
 const featuredProducts = [
+  {
+    title: "Rooftop Hybrid Solar for Industry",
+    category: "Waaree Energies × Deye Partnered EPC",
+    desc: "Bankable industrial rooftop solar paired with three-phase hybrid inverters and LiFePO4 battery storage for uninterrupted power, peak shaving, and rapid ROI.",
+    href: "/products/hybrid-solar-solutions",
+    image: "/images/renewable/industrial-rooftop-solar.jpg",
+    tags: ["Waaree PV", "Deye Hybrid", "LFP BESS"]
+  },
+  {
+    title: "Custom Smart Streetlight Poles",
+    category: "LED Display • Sidewalk • Solar Highway",
+    desc: "Custom architectural smart poles featuring vertical outdoor LED displays and sidewalk pedestrian lights, plus autonomous high-lumen solar highway lighting.",
+    href: "/products/smart-streetlight-poles",
+    image: "/images/renewable/smart-streetlight-led-sidewalk.jpg",
+    tags: ["LED Display", "Sidewalk Light", "Highway Solar"]
+  },
+  {
+    title: "Autonomous Solar Highway Lights",
+    category: "Off-Grid Expressway Lighting",
+    desc: "High-efficiency monocrystalline solar highway poles with smart MPPT controllers and adaptive dusk-to-dawn dimming for expressways and industrial corridors.",
+    href: "/products/smart-streetlight-poles",
+    image: "/images/renewable/solar-highway-lights.jpg",
+    tags: ["160+ lm/W", "MPPT Solar", "3-Day Backup"]
+  },
+  {
+    title: "Syvon EV Scooty",
+    category: "Electric Mobility Platform",
+    desc: "A heavy-duty, smart electric mobility solution engineered for clean urban transit, featuring digital telemetry displays, fast charging, and intelligent safety controls.",
+    href: "/products/syvon-ev-scooty",
+    image: "/images/products/Front_View.jpg",
+    tags: ["Range: 100km", "Charge: 3h", "Safety Lock"]
+  },
   {
     title: "UAV & Drone Technologies",
     category: "Aerospace & Field Operations",
@@ -256,22 +289,6 @@ const featuredProducts = [
     href: "/services#drone-technology",
     image: "/images/drone-services/drone-design.jpg",
     tags: ["Autonomous Flight", "Custom Payload", "Pilot Teams"]
-  },
-  {
-    title: "Reverse Engineering & 3D Scanning",
-    category: "Digital Metrology & Prototyping",
-    desc: "3D laser scanning physical components to CAD reconstruction, digital inspection, and additive manufacturing replacement fabrication.",
-    href: "/services#reverse-engineering",
-    image: "/images/drone-services/reverse-engineering.jpg",
-    tags: ["3D Metrology", "CAD Reconstruction", "Additive 3D"]
-  },
-  {
-    title: "Syvon EV Scooty",
-    category: "Electric Mobility Platform",
-    desc: "A heavy-duty, smart electric mobility solution engineered for urban transit, featuring digital telemetry displays, fast charging, and intelligent safety controls.",
-    href: "/products/syvon-ev-scooty",
-    image: "/images/products/Front_View.jpg",
-    tags: ["Range: 100km", "Charge: 3h", "Safety Lock"]
   },
   {
     title: "Faraday Shielding Products",
@@ -284,31 +301,31 @@ const featuredProducts = [
 ];
 
 const stats = [
-  { value: 120, suffix: "+", label: "Custom Systems Deployed" },
+  { value: 120, suffix: "+", label: "Clean Energy & Engineering Systems" },
   { value: 8, suffix: "+", label: "Years of Applied R&D" },
-  { value: 99, suffix: "%", label: "Engineering SLA Commitment" },
+  { value: 99, suffix: "%", label: "System Uptime & SLA Commitment" },
 ];
 
 const processSteps = [
   {
     num: "01",
-    title: "Discovery & Blueprinting",
-    desc: "We align closely with your business objective, mapping out database logic, load profiles, and system blueprints before writing a single line of code."
+    title: "Site & Load Audit",
+    desc: "We analyze rooftop structures, industrial load curves, solar irradiance, or roadway lux profiles before engineering the exact system blueprint."
   },
   {
     num: "02",
-    title: "Bespoke System Design",
-    desc: "Our creative design team builds intuitive, high-fidelity interactive design prototypes in Figma, keeping spacing, usability, and brand values top-of-mind."
+    title: "CAD & System Design",
+    desc: "Our engineers design high-efficiency PV layouts, custom smart pole CAD assemblies, and SCADA/IoT monitoring architectures."
   },
   {
     num: "03",
-    title: "Clean Production Engineering",
-    desc: "Our senior developers write clean, maintainable, TypeScript-driven platforms utilizing highly scalable systems and cloud infrastructure."
+    title: "Tier-1 Integration",
+    desc: "We integrate bankable hardware from Waaree Energies and Deye alongside precision fabrication, embedded telemetry, and clean software."
   },
   {
     num: "04",
-    title: "Automated QA & Delivery",
-    desc: "We perform rigorous automated unit and regression testing, load testing, and edge case checking to deliver zero-defect software."
+    title: "Commissioning & Telemetry",
+    desc: "Rigorous safety testing, DISCOM/grid synchronization, and 24/7 cloud energy monitoring ensure zero-defect long-term performance."
   }
 ];
 
@@ -364,7 +381,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6 }}
                 className={styles.heroBadge}
               >
-                <span>Research • Design • Engineering</span>
+                <span>Renewable Energy • Smart Infrastructure • Engineering</span>
               </motion.div>
 
               <motion.h1
@@ -373,7 +390,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className={styles.heroTitle}
               >
-                Engineering the next generation of software, hardware, and intelligent systems.
+                Powering industry with hybrid solar, smart lighting, and clean-tech engineering.
               </motion.h1>
 
               <motion.p
@@ -382,8 +399,9 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
                 className={styles.heroSubtitle}
               >
-                We research, design, and build custom hardware, embedded IoT platforms, 
-                smart EV mobility, applied AI solutions, and enterprise software architectures for global companies.
+                Syvon Technology delivers industrial rooftop hybrid solar plants in partnership with{" "}
+                <strong>Waaree Energies</strong> &amp; <strong>Deye</strong>, custom smart streetlight poles
+                with LED displays &amp; sidewalk/highway solar lighting, alongside EV mobility, UAV systems, and applied AI.
               </motion.p>
 
               <motion.div
@@ -392,14 +410,14 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
                 className={styles.heroActions}
               >
-                <Link href="/products" className={styles.primaryBtn}>
-                  Explore Our Innovations
+                <Link href="/products/hybrid-solar-solutions" className={styles.primaryBtn}>
+                  Explore Solar &amp; Smart Poles
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </Link>
                 <Link href="/contact" className={styles.secondaryBtn}>
-                  Let&apos;s Build the Future
+                  Request Solar Site Audit
                 </Link>
               </motion.div>
             </div>
@@ -431,12 +449,39 @@ export default function HeroSection() {
         </Container>
       </section>
 
+      {/* 2B. STRATEGIC RENEWABLE PARTNERSHIPS */}
+      <section className={styles.partnersSection}>
+        <Container>
+          <div className={styles.partnersBox}>
+            <div className={styles.partnersLead}>
+              <span>Bankable Tier-1 Ecosystem</span>
+              <h3>Official Hardware Partnerships for Industrial Solar</h3>
+              <p>
+                Every industrial rooftop hybrid solar installation is engineered with globally proven Tier-1 PV modules and intelligent three-phase hybrid inverters.
+              </p>
+            </div>
+            <div className={styles.partnerPills}>
+              <div className={styles.partnerTile}>
+                <span className={styles.partnerRole}>Solar PV Modules</span>
+                <h4>Waaree Energies</h4>
+                <p>High-efficiency N-Type TOPCon &amp; Mono PERC bifacial panels built for peak industrial yield.</p>
+              </div>
+              <div className={styles.partnerTile}>
+                <span className={styles.partnerRole}>Hybrid Inverters &amp; Storage</span>
+                <h4>Deye</h4>
+                <p>Three-phase hybrid inverters with &lt;4ms backup switchover, DG sync, and LiFePO4 BESS support.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* 3. FOCUS CAPABILITIES BENTO */}
       <section className={styles.section}>
         <Container>
           <div className={styles.sectionHeader}>
-            <h2>Core Competencies</h2>
-            <p>Our multidisciplinary engineering team constructs high-performance systems configured to survive enterprise workloads.</p>
+            <h2>Renewable &amp; Clean-Tech Competencies</h2>
+            <p>Multidisciplinary renewable energy, smart lighting, electric mobility, UAV, and software engineering built for industrial reliability.</p>
           </div>
 
           <div className={styles.bentoGrid}>
@@ -462,8 +507,8 @@ export default function HeroSection() {
       <section className={styles.section}>
         <Container>
           <div className={styles.sectionHeader}>
-            <h2>Flagship Products</h2>
-            <p>Applied R&D in mechanical engineering, electronics, and custom software systems transformed into market-ready products.</p>
+            <h2>Flagship Renewable &amp; Engineering Solutions</h2>
+            <p>Industrial hybrid solar plants, custom smart solar streetlight poles, electric mobility, and deep-tech hardware built for real-world deployment.</p>
           </div>
 
           <div className={styles.productsGrid}>
@@ -501,8 +546,8 @@ export default function HeroSection() {
       <section className={styles.section}>
         <Container>
           <div className={styles.sectionHeader}>
-            <h2>How We Build</h2>
-            <p>Our software engineering workflow is structured to minimize latency, optimize budget resources, and maximize platform durability.</p>
+            <h2>How We Deliver</h2>
+            <p>From industrial solar load audits and smart pole CAD engineering to grid commissioning and 24/7 IoT monitoring.</p>
           </div>
 
           <div className={styles.processGrid}>
@@ -525,17 +570,17 @@ export default function HeroSection() {
         <Container>
           <div className={styles.ctaContainer}>
             <div className={styles.ctaInner}>
-              <h2>Have a complex engineering challenge?</h2>
+              <h2>Ready to transition to clean, resilient energy?</h2>
               <p>
-                Whether you need to roll out a secure SaaS platform, deploy custom AI models, 
-                or build autonomous mobile telemetries, our team of senior systems engineers is ready to help.
+                Whether you are planning an industrial rooftop hybrid solar plant with Waaree Energies &amp; Deye,
+                deploying custom smart streetlight poles, or building clean-tech hardware and AI systems, our engineers are ready.
               </p>
               <div className={styles.ctaActions}>
                 <Link href="/contact" className={styles.primaryBtn}>
-                  Start Your Project
+                  Start Your Renewable Project
                 </Link>
                 <Link href="/services" className={styles.secondaryBtn}>
-                  View Our Capabilities
+                  Explore All Services
                 </Link>
               </div>
             </div>
